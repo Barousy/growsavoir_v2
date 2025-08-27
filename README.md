@@ -285,3 +285,6 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 ---
 
 **GrowSavoir** - Grandir ensemble dans la connaissance 🌱📚
+
+---
+*Dernière mise à jour : $(Get-Date -Format "dd/MM/yyyy HH:mm")*
