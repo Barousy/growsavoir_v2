@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
-import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucide-react'
+import { BookOpen, Clock, Trophy, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import LessonActions from '@/components/LessonActions'
 
 // Mock data - in real app, this would come from the database
 const mockLesson = {
@@ -66,10 +67,6 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
     notFound()
   }
 
-  const handlePrint = () => {
-    window.print()
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -86,27 +83,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
               </Link>
             </div>
             
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={handlePrint}
-                className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <Printer className="h-4 w-4 mr-2" />
-                Imprimer
-              </button>
-              
-              {lesson.isLocked ? (
-                <div className="flex items-center px-4 py-2 text-gray-500 bg-gray-100 rounded-lg">
-                  <Lock className="h-4 w-4 mr-2" />
-                  Contenu verrouillé
-                </div>
-              ) : (
-                <div className="flex items-center px-4 py-2 text-green-600 bg-green-100 rounded-lg">
-                  <Unlock className="h-4 w-4 mr-2" />
-                  Contenu débloqué
-                </div>
-              )}
-            </div>
+            <LessonActions isLocked={lesson.isLocked} />
           </div>
         </div>
       </div>
