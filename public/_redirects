@@ -1,12 +1,2 @@
-# Redirections pour Next.js App Router
-/api/*  /.netlify/functions/___netlify-handler  200
-
-# Redirection de la racine vers l'accueil
-/  /index.html  200
-
-# Configuration critique pour les routes dynamiques Next.js
-/lessons/*  /.netlify/functions/___netlify-handler  200
-/catalogue/*  /.netlify/functions/___netlify-handler  200
-
-# Fallback intelligent - laisser Next.js gérer le reste
-/*  /index.html  200
+# Configuration minimale - laisser Next.js gérer TOUT
+/*  /.netlify/functions/___netlify-handler  200

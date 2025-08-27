@@ -4,52 +4,15 @@
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 
 [build.environment]
-  # Variables d'environnement pour le build
   NODE_VERSION = "18"
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Configuration spécifique pour Next.js
+# Plugin Next.js essentiel
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Configuration pour Prisma
-[build.processing]
-  skip_processing = false
-
-# Optimisations de build
-[build.processing.css]
-  bundle = true
-  minify = true
-
-[build.processing.js]
-  bundle = true
-  minify = true
-
-# Configuration spéciale pour Next.js App Router
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-# Redirection de la racine vers l'accueil
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-
-# Configuration critique pour les routes dynamiques Next.js
-[[redirects]]
-  from = "/lessons/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-[[redirects]]
-  from = "/catalogue/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-# Fallback intelligent - laisser Next.js gérer le reste
+# Configuration minimale - laisser Next.js gérer TOUT
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/___netlify-handler"
   status = 200
