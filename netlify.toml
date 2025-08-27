@@ -48,8 +48,8 @@
   to = "/.netlify/functions/___netlify-handler"
   status = 200
 
-# Fallback pour les routes non trouvées (404)
+# Fallback intelligent - laisser Next.js gérer le reste
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/___netlify-handler"
+  to = "/index.html"
   status = 200

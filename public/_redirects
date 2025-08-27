@@ -8,5 +8,5 @@
 /lessons/*  /.netlify/functions/___netlify-handler  200
 /catalogue/*  /.netlify/functions/___netlify-handler  200
 
-# Fallback pour les routes non trouvées (404)
-/*  /.netlify/functions/___netlify-handler  200
+# Fallback intelligent - laisser Next.js gérer le reste
+/*  /index.html  200
