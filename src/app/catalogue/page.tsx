@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookOpen, Users, Clock, Lock, Unlock } from 'lucide-react'
+import { BookOpen, Lock, Unlock } from 'lucide-react'
 
 export default function CataloguePage() {
   const subjects = [

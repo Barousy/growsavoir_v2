@@ -2,12 +2,17 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Globe, BookOpen, Trophy, User } from 'lucide-react'
-import { locales, localeNames, isRtl } from '@/i18n/config'
+import { Menu, X, Globe, BookOpen, Trophy, User, LogOut, Settings } from 'lucide-react'
+import { useSession, signOut } from 'next-auth/react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { localeNames } from '@/i18n/config'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentLocale, setCurrentLocale] = useState('fr')
+  const { data: session, status } = useSession()
 
   const navigation = [
     { name: 'Accueil', href: '/', icon: BookOpen },
@@ -17,6 +22,10 @@ export default function Navigation() {
   ]
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: '/' })
+  }
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
@@ -50,30 +59,72 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             {/* Language Switcher */}
             <div className="relative">
-              <button
-                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => setCurrentLocale(currentLocale === 'fr' ? 'en' : currentLocale === 'en' ? 'ar' : 'fr')}
+                className="flex items-center space-x-2"
               >
                 <Globe className="h-4 w-4" />
                 <span>{localeNames[currentLocale as keyof typeof localeNames]}</span>
-              </button>
+              </Button>
             </div>
 
             {/* User Menu */}
-            <div className="flex items-center space-x-2">
-              <Link
-                href="/auth/login"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Connexion
-              </Link>
-              <Link
-                href="/auth/register"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Inscription
-              </Link>
-            </div>
+            {status === 'loading' ? (
+              <div className="h-8 w-8 bg-gray-200 rounded-full animate-pulse" />
+            ) : session ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                    <User className="h-4 w-4" />
+                    <span>{session.user?.name || session.user?.email}</span>
+                    <Badge variant="secondary" className="ml-2">
+                      {session.user?.role || 'USER'}
+                    </Badge>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard" className="flex items-center space-x-2">
+                      <User className="h-4 w-4" />
+                      <span>Tableau de bord</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  {session.user?.role === 'ADMIN' && (
+                    <DropdownMenuItem asChild>
+                      <Link href="/admin" className="flex items-center space-x-2">
+                        <Settings className="h-4 w-4" />
+                        <span>Administration</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile" className="flex items-center space-x-2">
+                      <User className="h-4 w-4" />
+                      <span>Profil</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut} className="flex items-center space-x-2 text-red-600">
+                    <LogOut className="h-4 w-4" />
+                    <span>Déconnexion</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <div className="flex items-center space-x-2">
+                <Link href="/auth/login">
+                  <Button variant="ghost" size="sm">
+                    Connexion
+                  </Button>
+                </Link>
+                <Link href="/auth/register">
+                  <Button size="sm">
+                    Inscription
+                  </Button>
+                </Link>
+              </div>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -106,20 +157,52 @@ export default function Navigation() {
               </Link>
             ))}
             <div className="pt-4 border-t border-gray-200">
-              <Link
-                href="/auth/login"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Connexion
-              </Link>
-              <Link
-                href="/auth/register"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Inscription
-              </Link>
+              {session ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Tableau de bord
+                  </Link>
+                  {session.user?.role === 'ADMIN' && (
+                    <Link
+                      href="/admin"
+                      className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Administration
+                    </Link>
+                  )}
+                  <button
+                    onClick={() => {
+                      handleSignOut()
+                      setIsMenuOpen(false)
+                    }}
+                    className="text-gray-700 hover:text-red-600 block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors"
+                  >
+                    Déconnexion
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/auth/login"
+                    className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Connexion
+                  </Link>
+                  <Link
+                    href="/auth/register"
+                    className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Inscription
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

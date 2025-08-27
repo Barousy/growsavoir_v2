@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookOpen, Globe, Calculator, Microscope, Computer, Mosque, Brain, Trophy } from 'lucide-react'
+import { BookOpen, Globe, Calculator, Microscope, Computer, Building2, Brain, Trophy } from 'lucide-react'
 
 export default function HomePage() {
   const subjects = [
@@ -57,7 +57,7 @@ export default function HomePage() {
       emoji: '🕌',
       description: 'Croyance islamique authentique',
       color: 'bg-yellow-500',
-      icon: Mosque,
+      icon: Building2,
     },
     {
       key: 'personal-development',

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { BookOpen, Clock, Lock, Unlock, Print, Trophy, ArrowLeft } from 'lucide-react'
+import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 // Mock data - in real app, this would come from the database
@@ -56,7 +56,7 @@ const mockLesson = {
   }
 }
 
-export default function LessonPage({ params }: { params: { slug: string } }) {
+export default function LessonPage() {
   // In real app, fetch lesson from database
   const lesson = mockLesson
 
@@ -89,7 +89,7 @@ export default function LessonPage({ params }: { params: { slug: string } }) {
                 onClick={handlePrint}
                 className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
               >
-                <Print className="h-4 w-4 mr-2" />
+                <Printer className="h-4 w-4 mr-2" />
                 Imprimer
               </button>
               

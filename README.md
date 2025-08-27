@@ -12,8 +12,8 @@ Un site éducatif ludique et structuré proposant des enseignements progressifs 
 
 ## 🚀 Technologies
 
-- **Frontend**: Next.js 14 (App Router) + TypeScript
-- **UI**: Tailwind CSS + Radix UI + Lucide Icons
+- **Frontend**: Next.js 15.5.2 (App Router) + TypeScript
+- **UI**: Tailwind CSS + shadcn/ui + Radix UI + Lucide Icons
 - **Base de données**: PostgreSQL (Neon) + Prisma ORM
 - **Authentification**: NextAuth.js
 - **Formulaires**: React Hook Form + Zod
@@ -30,16 +30,21 @@ Un site éducatif ludique et structuré proposant des enseignements progressifs 
 
 ```
 src/
-├── app/                    # App Router (Next.js 14)
+├── app/                    # App Router (Next.js 15)
+│   ├── admin/             # Panel d'administration
+│   ├── api/               # API routes
+│   │   └── auth/         # Authentification
+│   ├── auth/              # Pages d'authentification
 │   ├── catalogue/         # Catalogue des leçons
-│   ├── auth/             # Authentification
-│   ├── lessons/          # Pages des leçons
-│   ├── quiz/             # Système de quiz
-│   └── admin/            # Panel d'administration
-├── components/            # Composants réutilisables
-├── lib/                  # Utilitaires et configurations
-├── i18n/                 # Internationalisation
-└── types/                # Types TypeScript
+│   ├── dashboard/         # Tableau de bord utilisateur
+│   ├── lessons/           # Pages des leçons
+│   ├── progression/       # Suivi de progression
+│   └── quiz/              # Système de quiz
+├── components/             # Composants réutilisables
+│   └── ui/               # Composants shadcn/ui
+├── lib/                   # Utilitaires et configurations
+├── i18n/                  # Internationalisation
+└── types/                 # Types TypeScript
 ```
 
 ## 🚀 Installation et Démarrage
@@ -244,29 +249,33 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 🗺️ Roadmap
 
-### Phase 1 (Actuelle)
+### Phase 1 (Actuelle) ✅
 - [x] Structure de base Next.js
 - [x] Schéma de base de données
 - [x] Pages principales (Accueil, Catalogue)
 - [x] Navigation et composants UI
+- [x] Système d'authentification
+- [x] Pages de leçons et quiz
+- [x] Système de progression
+- [x] Panel d'administration
 
 ### Phase 2 (En cours)
-- [ ] Système d'authentification
-- [ ] Pages de leçons et quiz
-- [ ] Système de progression
 - [ ] Internationalisation complète
-
-### Phase 3 (Prochaine)
-- [ ] Panel d'administration
 - [ ] Système de badges
 - [ ] Tests complets
 - [ ] Déploiement production
 
-### Phase 4 (Future)
+### Phase 3 (Prochaine)
 - [ ] Mode sombre
 - [ ] Applications mobiles
 - [ ] IA pour recommandations
 - [ ] Communauté et forums
+
+### Phase 4 (Future)
+- [ ] Système de paiement
+- [ ] Contenu premium
+- [ ] API publique
+- [ ] Intégrations tierces
 
 ---
 
