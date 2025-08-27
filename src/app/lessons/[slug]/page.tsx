@@ -2,66 +2,13 @@ import { notFound } from 'next/navigation'
 import { BookOpen, Clock, Trophy, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import LessonActions from '@/components/LessonActions'
-
-// Mock data - in real app, this would come from the database
-const mockLesson = {
-  slug: 'alphabet-arabe-debutant',
-  title: 'L\'Alphabet Arabe - Niveau Débutant',
-  summary: 'Découverte des 28 lettres de l\'alphabet arabe avec prononciation',
-  minutes: 15,
-  isLocked: false,
-  subject: 'Langue Arabe',
-  ageGroup: 'Maternelle',
-  body: {
-    sections: [
-      {
-        type: 'introduction',
-        title: 'Bienvenue dans l\'apprentissage de l\'arabe',
-        content: 'Aujourd\'hui, nous allons découvrir les lettres de l\'alphabet arabe. L\'arabe est une langue magnifique parlée par plus de 400 millions de personnes dans le monde.',
-        image: '/images/arabic-intro.jpg'
-      },
-      {
-        type: 'lesson',
-        title: 'Les premières lettres',
-        content: 'Commençons par les 5 premières lettres de l\'alphabet arabe. Chaque lettre a sa propre forme et son propre son.',
-        examples: [
-          { letter: 'ا', name: 'Alif', pronunciation: 'A', meaning: 'Première lettre' },
-          { letter: 'ب', name: 'Baa', pronunciation: 'B', meaning: 'Deuxième lettre' },
-          { letter: 'ت', name: 'Taa', pronunciation: 'T', meaning: 'Troisième lettre' },
-          { letter: 'ث', name: 'Thaa', pronunciation: 'TH', meaning: 'Quatrième lettre' },
-          { letter: 'ج', name: 'Jiim', pronunciation: 'J', meaning: 'Cinquième lettre' }
-        ]
-      },
-      {
-        type: 'activity',
-        title: 'Activité pratique',
-        content: 'Maintenant, pratiquons ensemble ! Répétez chaque lettre après l\'écoute de sa prononciation.',
-        instructions: [
-          'Écoutez attentivement la prononciation',
-          'Répétez à haute voix',
-          'Observez la forme de chaque lettre',
-          'Associez le son à la forme'
-        ]
-      },
-      {
-        type: 'vocabulary',
-        title: 'Vocabulaire de base',
-        content: 'Apprenons quelques mots simples qui commencent par ces lettres.',
-        words: [
-          { arabic: 'أب', transliteration: 'Ab', french: 'Père' },
-          { arabic: 'بنت', transliteration: 'Bint', french: 'Fille' },
-          { arabic: 'تمر', transliteration: 'Tamr', french: 'Datte' }
-        ]
-      }
-    ]
-  }
-}
+import { getLessonBySlug } from '@/data/lessons'
 
 export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   
-  // In real app, fetch lesson from database based on slug
-  const lesson = mockLesson
+  // Récupérer la leçon basée sur le slug
+  const lesson = getLessonBySlug(slug)
 
   if (!lesson) {
     notFound()
