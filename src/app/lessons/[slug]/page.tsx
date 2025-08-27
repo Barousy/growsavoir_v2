@@ -56,8 +56,10 @@ const mockLesson = {
   }
 }
 
-export default function LessonPage() {
-  // In real app, fetch lesson from database
+export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  
+  // In real app, fetch lesson from database based on slug
   const lesson = mockLesson
 
   if (!lesson) {

@@ -38,6 +38,31 @@ const subjects = {
       }
     ]
   },
+  french: {
+    title: 'Langue Française',
+    emoji: '🇫🇷',
+    description: 'Maîtrise de la langue française',
+    lessons: [
+      {
+        id: 'grammaire-francaise',
+        title: 'Grammaire Française - Niveau Débutant',
+        summary: 'Les bases de la grammaire française',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'grammaire-francaise'
+      },
+      {
+        id: 'conjugaison-francaise',
+        title: 'Conjugaison des Verbes',
+        summary: 'Apprendre à conjuguer les verbes français',
+        minutes: 25,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'conjugaison-francaise'
+      }
+    ]
+  },
   'computer-science': {
     title: 'Informatique',
     emoji: '💻',
