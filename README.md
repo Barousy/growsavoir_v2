@@ -287,4 +287,4 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 **GrowSavoir** - Grandir ensemble dans la connaissance 🌱📚
 
 ---
-*Dernière mise à jour : $(Get-Date -Format "dd/MM/yyyy HH:mm")*
+*Dernière mise à jour : 27/08/2025 14:30 - Build forcé pour Netlify*
