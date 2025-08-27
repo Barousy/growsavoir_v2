@@ -78,7 +78,7 @@ export default function HomePage() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Bienvenue sur{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                GrowSavoir
+                GrowSavoir v2.0
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 max-w-3xl mx-auto">
