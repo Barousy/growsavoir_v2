@@ -4,5 +4,9 @@
 # Redirection de la racine vers l'accueil
 /  /index.html  200
 
+# Configuration critique pour les routes dynamiques Next.js
+/lessons/*  /.netlify/functions/___netlify-handler  200
+/catalogue/*  /.netlify/functions/___netlify-handler  200
+
 # Fallback pour les routes non trouvées (404)
-/*  /index.html  200
+/*  /.netlify/functions/___netlify-handler  200

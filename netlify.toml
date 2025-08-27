@@ -25,7 +25,7 @@
   bundle = true
   minify = true
 
-# Redirections pour Next.js App Router
+# Configuration spéciale pour Next.js App Router
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/___netlify-handler"
@@ -37,8 +37,19 @@
   to = "/index.html"
   status = 200
 
+# Configuration critique pour les routes dynamiques Next.js
+[[redirects]]
+  from = "/lessons/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
+[[redirects]]
+  from = "/catalogue/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
 # Fallback pour les routes non trouvées (404)
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/___netlify-handler"
   status = 200
