@@ -81,8 +81,9 @@ const subjects = {
   }
 }
 
-export default function SubjectPage({ params }: { params: { subject: string } }) {
-  const subject = subjects[params.subject as keyof typeof subjects]
+export default async function SubjectPage({ params }: { params: Promise<{ subject: string }> }) {
+  const { subject: subjectKey } = await params
+  const subject = subjects[subjectKey as keyof typeof subjects]
 
   if (!subject) {
     notFound()
