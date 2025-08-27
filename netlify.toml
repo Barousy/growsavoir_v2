@@ -31,6 +31,12 @@
   to = "/.netlify/functions/___netlify-handler"
   status = 200
 
+# Redirection de la racine vers l'accueil
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

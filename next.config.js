@@ -27,15 +27,16 @@ const nextConfig = {
   },
   // Configuration pour Netlify
   trailingSlash: false,
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/fr',
-        permanent: false,
-      },
-    ]
-  },
+  // Redirections désactivées pour Netlify
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/fr',
+  //       permanent: false,
+  //     },
+  //   ]
+  // },
 }
 
 module.exports = nextConfig

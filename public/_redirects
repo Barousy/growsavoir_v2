@@ -1,6 +1,9 @@
 # Redirections pour Next.js App Router
 /api/*  /.netlify/functions/___netlify-handler  200
 
+# Redirection de la racine vers l'accueil
+/  /index.html  200
+
 # Routes dynamiques
 /lessons/*  /index.html  200
 /catalogue/*  /index.html  200
