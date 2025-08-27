@@ -7,34 +7,6 @@
   NODE_VERSION = "18"
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Plugin Next.js essentiel
+# Plugin Next.js - laisser gérer TOUT le routing
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-# Configuration hybride intelligente
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-# Routes dynamiques Next.js
-[[redirects]]
-  from = "/lessons/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-[[redirects]]
-  from = "/catalogue/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-
-# Fallback intelligent
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
