@@ -207,12 +207,17 @@ npm run test:a11y
 
 ## 🚀 Déploiement
 
-### Netlify
+### Déploiement sur Netlify
 
-1. Connecter le repository GitHub
-2. Configurer les variables d'environnement
-3. Build command: `npm run build`
-4. Publish directory: `.next`
+1. **Connecter le repository GitHub** à Netlify
+2. **Variables d'environnement requises** :
+   - `DATABASE_URL` : URL de votre base de données Neon PostgreSQL
+   - `NEXTAUTH_SECRET` : Clé secrète pour NextAuth (générer avec `openssl rand -base64 32`)
+   - `NEXTAUTH_URL` : URL de votre site (ex: `https://votre-site.netlify.app`)
+
+3. **Configuration automatique** : Le fichier `netlify.toml` est déjà configuré
+
+4. **Build** : Le script inclut automatiquement `prisma generate`
 
 ### Variables d'environnement de production
 

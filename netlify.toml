@@ -1,0 +1,31 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Variables d'environnement pour le build
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Configuration spécifique pour Next.js
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Configuration pour Prisma
+[build.processing]
+  skip_processing = false
+
+# Optimisations de build
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+# Redirections pour Next.js
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
