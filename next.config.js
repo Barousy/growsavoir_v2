@@ -3,18 +3,30 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
+  // Configuration pour Netlify
+  experimental: {
+    // Désactiver turbopack en production
+    ...(process.env.NODE_ENV === 'production' && {
+      turbo: false,
+    }),
+    // Activer turbopack en développement
+    ...(process.env.NODE_ENV === 'development' && {
+      turbo: {
+        rules: {
+          '*.svg': {
+            loaders: ['@svgr/webpack'],
+            as: '*.js',
+          },
+        },
       },
-    },
+    }),
   },
   images: {
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
   },
+  // Configuration pour Netlify
+  trailingSlash: false,
   async redirects() {
     return [
       {

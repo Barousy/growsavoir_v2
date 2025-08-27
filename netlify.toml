@@ -24,8 +24,14 @@
   bundle = true
   minify = true
 
-# Redirections pour Next.js
+# Redirections pour Next.js App Router
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
