@@ -63,6 +63,63 @@ const subjects = {
       }
     ]
   },
+  english: {
+    title: 'Langue Anglaise',
+    emoji: '🇬🇧',
+    description: 'Apprentissage de l\'anglais',
+    lessons: [
+      {
+        id: 'english-basics',
+        title: 'Bases de l\'Anglais',
+        summary: 'Apprendre les bases de la langue anglaise',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'english-basics'
+      },
+      {
+        id: 'english-conversation',
+        title: 'Conversation Anglaise',
+        summary: 'Pratiquer la conversation en anglais',
+        minutes: 25,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'english-conversation'
+      }
+    ]
+  },
+  mathematics: {
+    title: 'Mathématiques',
+    emoji: '🔢',
+    description: 'Sciences mathématiques et logique',
+    lessons: [
+      {
+        id: 'addition-soustraction',
+        title: 'Addition et Soustraction',
+        summary: 'Opérations de base avec les nombres',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'addition-soustraction'
+      }
+    ]
+  },
+  sciences: {
+    title: 'Sciences',
+    emoji: '🔬',
+    description: 'Sciences naturelles et expérimentales',
+    lessons: [
+      {
+        id: 'decouverte-sciences',
+        title: 'Découverte des Sciences',
+        summary: 'Introduction aux sciences naturelles',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'decouverte-sciences'
+      }
+    ]
+  },
   'computer-science': {
     title: 'Informatique',
     emoji: '💻',
@@ -88,19 +145,83 @@ const subjects = {
       }
     ]
   },
-  mathematics: {
-    title: 'Mathématiques',
-    emoji: '🔢',
-    description: 'Sciences mathématiques et logique',
+  aqida: {
+    title: 'Aqida',
+    emoji: '🕌',
+    description: 'Croyance islamique authentique',
     lessons: [
       {
-        id: 'addition-soustraction',
-        title: 'Addition et Soustraction',
-        summary: 'Opérations de base avec les nombres',
+        id: 'bases-aqida',
+        title: 'Bases de l\'Aqida',
+        summary: 'Introduction aux fondements de la croyance',
         minutes: 20,
         level: 'Débutant',
         isLocked: false,
-        slug: 'addition-soustraction'
+        slug: 'bases-aqida'
+      }
+    ]
+  },
+  fiqh: {
+    title: 'Fiqh',
+    emoji: '📚',
+    description: 'Jurisprudence islamique de base',
+    lessons: [
+      {
+        id: 'introduction-fiqh',
+        title: 'Introduction au Fiqh',
+        summary: 'Bases de la jurisprudence islamique',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'introduction-fiqh'
+      }
+    ]
+  },
+  sira: {
+    title: 'Sira',
+    emoji: '📖',
+    description: 'Biographie du Prophète ﷺ',
+    lessons: [
+      {
+        id: 'vie-prophete',
+        title: 'La Vie du Prophète ﷺ',
+        summary: 'Découverte de la biographie prophétique',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'vie-prophete'
+      }
+    ]
+  },
+  'islamic-history': {
+    title: 'Histoire de l\'Islam',
+    emoji: '🏛️',
+    description: 'Histoire des premiers siècles de l\'Islam',
+    lessons: [
+      {
+        id: 'histoire-islam',
+        title: 'Histoire de l\'Islam',
+        summary: 'Les premiers siècles de l\'Islam',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'histoire-islam'
+      }
+    ]
+  },
+  'personal-development': {
+    title: 'Développement Personnel',
+    emoji: '🌟',
+    description: 'Adab et éthique islamique',
+    lessons: [
+      {
+        id: 'adab-islamique',
+        title: 'Adab Islamique',
+        summary: 'Les bonnes manières en Islam',
+        minutes: 20,
+        level: 'Débutant',
+        isLocked: false,
+        slug: 'adab-islamique'
       }
     ]
   }
