@@ -11,8 +11,30 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Configuration minimale - laisser Next.js gérer TOUT
+# Configuration hybride intelligente
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
+# Routes dynamiques Next.js
+[[redirects]]
+  from = "/lessons/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
+[[redirects]]
+  from = "/catalogue/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+
+# Fallback intelligent
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/___netlify-handler"
+  to = "/index.html"
   status = 200
