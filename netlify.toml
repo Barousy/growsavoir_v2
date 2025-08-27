@@ -37,24 +37,8 @@
   to = "/index.html"
   status = 200
 
-# Routes spécifiques pour éviter les 404
-[[redirects]]
-  from = "/catalogue/arabic"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/catalogue/computer-science"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/catalogue/mathematics"
-  to = "/index.html"
-  status = 200
-
+# Fallback pour les routes non trouvées (404)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
