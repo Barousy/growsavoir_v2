@@ -13,5 +13,18 @@
 /admin  /index.html  200
 /progression  /index.html  200
 
+# Routes spécifiques pour éviter les 404
+/catalogue/arabic  /index.html  200
+/catalogue/computer-science  /index.html  200
+/catalogue/mathematics  /index.html  200
+/catalogue/french  /index.html  200
+/catalogue/english  /index.html  200
+/catalogue/sciences  /index.html  200
+/catalogue/aqida  /index.html  200
+/catalogue/fiqh  /index.html  200
+/catalogue/sira  /index.html  200
+/catalogue/islamic-history  /index.html  200
+/catalogue/personal-development  /index.html  200
+
 # Fallback pour toutes les autres routes
 /*  /index.html  200
