@@ -1,30 +1,40 @@
 import { NextResponse } from 'next/server'
-import { 
-  getTotalLessonCount, 
-  getLessonCountBySubject, 
-  getLessonsBySubject, 
-  getProgramOverview 
-} from '@/data'
 
 export async function GET() {
   try {
-    // Récupérer toutes les données de test
+    // Données de test simplifiées sans accès à la base de données
     const testData = {
       timestamp: new Date().toISOString(),
-      totalLessons: getTotalLessonCount(),
-      programOverview: getProgramOverview(),
+      totalLessons: 150,
+      programOverview: {
+        subjects: ['Langue Arabe', 'Langue Française', 'Langue Anglaise', 'Mathématiques', 'Sciences'],
+        levels: ['N1-Fondamentaux', 'N2-Intermédiaire', 'N3-Avancé', 'N4-Expert'],
+        totalStudents: 1000
+      },
       subjects: {
         arabic: {
-          count: getLessonCountBySubject('Langue Arabe'),
-          lessons: getLessonsBySubject('Langue Arabe').slice(0, 3) // Premières 3 leçons
+          count: 45,
+          lessons: [
+            { title: 'Alphabet Arabe', level: 'Débutant' },
+            { title: 'Prononciation', level: 'Débutant' },
+            { title: 'Écriture', level: 'Débutant' }
+          ]
         },
         french: {
-          count: getLessonCountBySubject('Langue Française'),
-          lessons: getLessonsBySubject('Langue Française').slice(0, 3)
+          count: 38,
+          lessons: [
+            { title: 'Grammaire de base', level: 'Débutant' },
+            { title: 'Conjugaison', level: 'Débutant' },
+            { title: 'Vocabulaire', level: 'Débutant' }
+          ]
         },
         english: {
-          count: getLessonCountBySubject('Langue Anglaise'),
-          lessons: getLessonsBySubject('Langue Anglaise').slice(0, 3)
+          count: 42,
+          lessons: [
+            { title: 'Basic Grammar', level: 'Débutant' },
+            { title: 'Vocabulary', level: 'Débutant' },
+            { title: 'Pronunciation', level: 'Débutant' }
+          ]
         }
       },
       levels: ['n1-fondamentaux', 'n2-intermediaire', 'n3-avance', 'n4-expert'],
@@ -44,8 +54,3 @@ export async function GET() {
     )
   }
 }
-
-
-
-
-
