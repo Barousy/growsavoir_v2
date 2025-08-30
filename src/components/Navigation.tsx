@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Globe, BookOpen, Trophy, User, LogOut, Settings } from 'lucide-react'
+import { Menu, X, Globe, BookOpen, Trophy, User, LogOut, Settings, BarChart3 } from 'lucide-react'
 import { useSession, signOut } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -17,6 +17,7 @@ export default function Navigation() {
   const navigation = [
     { name: 'Accueil', href: '/', icon: BookOpen },
     { name: 'Catalogue', href: '/catalogue', icon: BookOpen },
+    { name: 'Statistiques', href: '/statistiques', icon: BarChart3 },
     { name: 'Quiz', href: '/quiz', icon: Trophy },
     { name: 'Progression', href: '/progression', icon: Trophy },
   ]

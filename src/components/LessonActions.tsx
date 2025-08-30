@@ -35,3 +35,5 @@ export default function LessonActions({ isLocked }: LessonActionsProps) {
     </div>
   )
 }
+
+

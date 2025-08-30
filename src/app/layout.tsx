@@ -75,7 +75,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased"
+        style={{
+          '--font-geist-sans': geistSans.variable,
+          '--font-geist-mono': geistMono.variable,
+        } as React.CSSProperties}
       >
         <NextAuthProvider>
           <Navigation />

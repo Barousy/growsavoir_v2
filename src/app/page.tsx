@@ -7,7 +7,7 @@ export default function HomePage() {
       key: 'arabic',
       title: 'Langue Arabe',
       emoji: '📖',
-      description: 'Apprentissage de l\'arabe avec support RTL et harakât',
+              description: 'Apprentissage de l&apos;arabe avec support RTL et harakât',
       color: 'bg-blue-500',
       icon: Globe,
     },
@@ -78,11 +78,11 @@ export default function HomePage() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Bienvenue sur{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                GrowSavoir v2.0
+                GrowSavoir
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 max-w-3xl mx-auto">
-              Découvrez un monde d'apprentissage ludique et structuré. 
+                             Découvrez un monde d&apos;apprentissage ludique et structuré. 
               Des langues aux sciences, en passant par les sciences islamiques, 
               chaque leçon est conçue pour grandir ensemble.
             </p>
@@ -145,6 +145,70 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Levels Showcase Section */}
+      <section className="py-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Progression par Niveaux
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Une progression claire et structurée avec des couleurs distinctives
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* N1 - Fondamentaux */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-green-600">1</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">N1 - Fondamentaux</h3>
+              <p className="text-sm text-gray-600 mb-4">Niveau d&apos;introduction pour les enfants de 6-8 ans</p>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200">
+                N1 - Fondamentaux
+              </span>
+            </div>
+
+            {/* N2 - Intermédiaire */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-yellow-600">2</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">N2 - Intermédiaire</h3>
+              <p className="text-sm text-gray-600 mb-4">Niveau de développement pour les enfants de 9-11 ans</p>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                N2 - Intermédiaire
+              </span>
+            </div>
+
+            {/* N3 - Avancé */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-orange-600">3</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">N3 - Avancé</h3>
+              <p className="text-sm text-gray-600 mb-4">Niveau de maîtrise pour les enfants de 12-14 ans</p>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200">
+                N3 - Avancé
+              </span>
+            </div>
+
+            {/* N4 - Expert */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-red-600">4</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">N4 - Expert</h3>
+              <p className="text-sm text-gray-600 mb-4">Niveau d&apos;excellence pour les adolescents de 15-18 ans</p>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-200">
+                N4 - Expert
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -163,7 +227,7 @@ export default function HomePage() {
                 Gamification
               </h3>
               <p className="text-gray-600">
-                Badges, séries et progression pour motiver l'apprentissage
+                Badges, séries et progression pour motiver l&apos;apprentissage
               </p>
             </div>
             

@@ -1,14 +1,19 @@
 import Link from 'next/link'
 import { BookOpen, Lock, Unlock } from 'lucide-react'
+import { getProgramOverview, getTotalLessonCount, getLessonCountBySubject } from '@/data'
 
 export default function CataloguePage() {
+  // Obtenir les vraies données du programme
+  const programOverview = getProgramOverview()
+  const totalLessons = getTotalLessonCount()
+  
   const subjects = [
     {
       key: 'arabic',
       title: 'Langue Arabe',
       emoji: '📖',
       description: 'Apprentissage de l\'arabe avec support RTL et harakât',
-      lessonCount: 24,
+      lessonCount: getLessonCountBySubject('Langue Arabe'),
       color: 'from-blue-500 to-blue-600',
     },
     {
@@ -16,7 +21,7 @@ export default function CataloguePage() {
       title: 'Langue Française',
       emoji: '🇫🇷',
       description: 'Maîtrise de la langue française',
-      lessonCount: 20,
+      lessonCount: getLessonCountBySubject('Langue Française'),
       color: 'from-red-500 to-red-600',
     },
     {
@@ -24,7 +29,7 @@ export default function CataloguePage() {
       title: 'Langue Anglaise',
       emoji: '🇬🇧',
       description: 'Apprentissage de l\'anglais',
-      lessonCount: 18,
+      lessonCount: getLessonCountBySubject('Langue Anglaise'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
@@ -32,7 +37,7 @@ export default function CataloguePage() {
       title: 'Mathématiques',
       emoji: '🔢',
       description: 'Sciences mathématiques et logique',
-      lessonCount: 30,
+      lessonCount: getLessonCountBySubject('Mathématiques'),
       color: 'from-green-500 to-green-600',
     },
     {
@@ -40,7 +45,7 @@ export default function CataloguePage() {
       title: 'Sciences',
       emoji: '🔬',
       description: 'Sciences naturelles et expérimentales',
-      lessonCount: 25,
+      lessonCount: getLessonCountBySubject('Sciences'),
       color: 'from-purple-500 to-purple-600',
     },
     {
@@ -48,7 +53,7 @@ export default function CataloguePage() {
       title: 'Informatique',
       emoji: '💻',
       description: 'Programmation et technologies numériques',
-      lessonCount: 22,
+      lessonCount: getLessonCountBySubject('Informatique'),
       color: 'from-gray-500 to-gray-600',
     },
     {
@@ -56,7 +61,7 @@ export default function CataloguePage() {
       title: 'Aqida',
       emoji: '🕌',
       description: 'Croyance islamique authentique',
-      lessonCount: 15,
+      lessonCount: getLessonCountBySubject('Aqîda (Creed)'),
       color: 'from-yellow-500 to-yellow-600',
     },
     {
@@ -64,7 +69,7 @@ export default function CataloguePage() {
       title: 'Fiqh',
       emoji: '📚',
       description: 'Jurisprudence islamique de base',
-      lessonCount: 18,
+      lessonCount: getLessonCountBySubject('Fiqh (Jurisprudence)'),
       color: 'from-orange-500 to-orange-600',
     },
     {
@@ -72,7 +77,7 @@ export default function CataloguePage() {
       title: 'Sira',
       emoji: '📖',
       description: 'Biographie du Prophète ﷺ',
-      lessonCount: 20,
+      lessonCount: getLessonCountBySubject('Sîra (Biographie du Prophète ﷺ)'),
       color: 'from-teal-500 to-teal-600',
     },
     {
@@ -80,7 +85,7 @@ export default function CataloguePage() {
       title: 'Histoire de l\'Islam',
       emoji: '🏛️',
       description: 'Histoire des premiers siècles de l\'Islam',
-      lessonCount: 16,
+      lessonCount: getLessonCountBySubject('Histoire de l\'Islam'),
       color: 'from-pink-500 to-pink-600',
     },
     {
@@ -88,7 +93,7 @@ export default function CataloguePage() {
       title: 'Développement Personnel',
       emoji: '🌟',
       description: 'Adab et éthique islamique',
-      lessonCount: 12,
+      lessonCount: getLessonCountBySubject('Développement Personnel'),
       color: 'from-cyan-500 to-cyan-600',
     },
   ]
