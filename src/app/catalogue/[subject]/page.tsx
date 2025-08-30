@@ -66,8 +66,10 @@ const subjectConfig = {
   }
 }
 
-export default function SubjectPage({ params }: { params: { subject: string } }) {
-  const { subject: subjectKey } = params
+export default async function SubjectPage(
+  { params }: { params: Promise<{ subject: string }> }
+) {
+  const { subject: subjectKey } = await params
   const subjectName = subjectMapping[subjectKey as keyof typeof subjectMapping]
 
   if (!subjectName) {
