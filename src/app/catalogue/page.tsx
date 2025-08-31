@@ -1,18 +1,22 @@
+// src/app/catalogue/page.tsx
 import Link from 'next/link'
-import { BookOpen, Lock, Unlock } from 'lucide-react'
-import { getProgramOverview, getTotalLessonCount, getLessonCountBySubject } from '@/data'
+import { BookOpen, Lock, Unlock, ShieldCheck } from 'lucide-react'
+import { getTotalLessonCount, getLessonCountBySubject } from '@/data'
+import { hasUnlockedAccess } from '@/lib/access'
 
-export default function CataloguePage() {
-  // Obtenir les vraies données du programme
-  const programOverview = getProgramOverview()
+export default async function CataloguePage() {
+  // Accès global (cookie gs_unlock)
+  const unlocked = await hasUnlockedAccess()
+
+  // Compteur global
   const totalLessons = getTotalLessonCount()
-  
+
   const subjects = [
     {
       key: 'arabic',
       title: 'Langue Arabe',
       emoji: '📖',
-      description: 'Apprentissage de l\'arabe avec support RTL et harakât',
+      description: "Apprentissage de l'arabe avec support RTL et harakât",
       lessonCount: getLessonCountBySubject('Langue Arabe'),
       color: 'from-blue-500 to-blue-600',
     },
@@ -28,7 +32,7 @@ export default function CataloguePage() {
       key: 'english',
       title: 'Langue Anglaise',
       emoji: '🇬🇧',
-      description: 'Apprentissage de l\'anglais',
+      description: "Apprentissage de l'anglais",
       lessonCount: getLessonCountBySubject('Langue Anglaise'),
       color: 'from-indigo-500 to-indigo-600',
     },
@@ -82,10 +86,10 @@ export default function CataloguePage() {
     },
     {
       key: 'islamic-history',
-      title: 'Histoire de l\'Islam',
+      title: "Histoire de l'Islam",
       emoji: '🏛️',
-      description: 'Histoire des premiers siècles de l\'Islam',
-      lessonCount: getLessonCountBySubject('Histoire de l\'Islam'),
+      description: "Histoire des premiers siècles de l'Islam",
+      lessonCount: getLessonCountBySubject("Histoire de l'Islam"),
       color: 'from-pink-500 to-pink-600',
     },
     {
@@ -115,8 +119,26 @@ export default function CataloguePage() {
               Catalogue des Leçons
             </h1>
             <p className="mt-4 text-lg text-gray-600">
-              Découvrez notre collection complète de leçons organisées par matière et par niveau
+              Découvrez {totalLessons} leçon{totalLessons > 1 ? 's' : ''} organisées par matière et par niveau
             </p>
+
+            {/* État d'accès global */}
+            <div className="mt-6 flex items-center justify-center">
+              {unlocked ? (
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium">
+                  <ShieldCheck className="h-4 w-4" />
+                  Accès avancé activé — N2/N3/N4 déverrouillés
+                </span>
+              ) : (
+                <Link
+                  href="/unlock"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-800 text-sm font-medium hover:bg-gray-200"
+                >
+                  <Lock className="h-4 w-4" />
+                  Contenu avancé verrouillé — Déverrouiller l&apos;accès
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -142,7 +164,10 @@ export default function CataloguePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {subjects.map((subject) => (
-            <div key={subject.key} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+            <div
+              key={subject.key}
+              className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+            >
               {/* Subject Header */}
               <div className={`bg-gradient-to-r ${subject.color} p-6 text-white`}>
                 <div className="flex items-center justify-between mb-4">
@@ -174,7 +199,7 @@ export default function CataloguePage() {
                     </div>
                   </div>
 
-                  {/* Sample Lessons */}
+                  {/* Sample Lessons (icônes dynamiques selon l'accès) */}
                   <div>
                     <h4 className="text-sm font-medium text-gray-700 mb-2">Exemples de leçons :</h4>
                     <div className="space-y-2">
@@ -184,11 +209,19 @@ export default function CataloguePage() {
                       </div>
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-gray-600">Niveau Intermédiaire</span>
-                        <Lock className="h-4 w-4 text-gray-400" />
+                        {unlocked ? (
+                          <Unlock className="h-4 w-4 text-green-600" />
+                        ) : (
+                          <Lock className="h-4 w-4 text-gray-400" />
+                        )}
                       </div>
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-gray-600">Niveau Avancé</span>
-                        <Lock className="h-4 w-4 text-gray-400" />
+                        {unlocked ? (
+                          <Unlock className="h-4 w-4 text-green-600" />
+                        ) : (
+                          <Lock className="h-4 w-4 text-gray-400" />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -215,7 +248,7 @@ export default function CataloguePage() {
             Prêt à commencer votre apprentissage ?
           </h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Rejoignez des milliers d'étudiants qui apprennent et grandissent avec GrowSavoir
+            Rejoignez des milliers d&apos;étudiants qui apprennent et grandissent avec GrowSavoir
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

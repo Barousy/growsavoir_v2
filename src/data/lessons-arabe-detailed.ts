@@ -2158,719 +2158,489 @@ Tu peux passer au **N2** ou consolider encore 1–2 semaines avec des lectures c
     "tags": ["arabe","n1","évaluation","lecture","diacritiques"]
   }
 },
-
-  "arabe-n2-intermediaire-02": {
-    "slug": "arabe-n2-02",
-    "title": "Leçon 2 - Langue Arabe",
-    "summary": "Leçon 2 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 34,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-01"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 2"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 2 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 2 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
+  "arabe-n2-intermediaire-01": {
+  slug: "arabe-n2-intermediaire-01",
+  title: "Révision N1 + formes des lettres (début/milieu/fin)",
+  summary: "Consolider N1 et automatiser les formes des lettres selon la position.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 35,
+  isLocked: true,
+  prerequisites: ["arabe-n1-fondamentaux-12"],
+  learningObjectives: [
+    "Identifier la forme d’une lettre selon sa position",
+    "Lire des mots courts en continu",
+    "Écrire proprement en respectant les formes"
+  ],
+  keywords: ["arabe", "forme des lettres", "révision N1", "n2"],
+  sources: [
+    {
+      title: "Rappel des formes des lettres",
+      url: "https://example.com/formes",
+      description: "Tableau des formes isolée/début/milieu/fin."
+    }
+  ],
+  body: {
+    introduction: {
+      title: "On repart sur de bonnes bases",
+      content: "Avant d’avancer, on **stabilise** les acquis : formes de lettres, lecture fluide, écriture soignée."
     },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "2"
+    mainContent: [
+      { type: "concept", title: "Formes des lettres", content: "Chaque lettre change selon sa position. Ex. ب : ﺏ / بـ / ـبـ / ـب." },
+      { type: "example", title: "Lecture guidée", content: "Lis : بَاب، كِتَاب، مَدْرَسَة." },
+      { type: "activity", title: "Copie structurée", content: "Copie 6 mots en colonnes (isolée → début → milieu → fin)." }
+    ],
+    conclusion: {
+      summary: "Les bases sont solides : on peut accélérer en N2.",
+      keyTakeaways: ["Formes = position", "Lecture d’un seul flux", "Écriture lisible"],
+      nextSteps: ["Passer à la leçon 2 (liaison et mots simples)"],
+      additionalResources: [
+        { title: "Fiches formes", description: "Cartes à imprimer des 28 lettres.", url: "https://example.com/fiches-formes" }
       ]
     }
   },
-  "arabe-n2-intermediaire-03": {
-    "slug": "arabe-n2-03",
-    "title": "Leçon 3 - Langue Arabe",
-    "summary": "Leçon 3 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 36,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-02"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
+  assessment: {
+    quiz: [
       {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 3"
+        question: "La forme d’une lettre dépend de…",
+        type: "multiple-choice",
+        options: ["La couleur", "Sa position dans le mot", "La police"],
+        correctAnswer: "Sa position dans le mot",
+        explanation: "Début/milieu/fin/isolée.",
+        points: 2
       }
     ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 3 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 3 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "3"
-      ]
-    }
+    passingScore: 80,
+    timeLimit: 10
   },
-  "arabe-n2-intermediaire-04": {
-    "slug": "arabe-n2-04",
-    "title": "Leçon 4 - Langue Arabe",
-    "summary": "Leçon 4 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 38,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-03"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 4"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 4 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 4 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "4"
-      ]
-    }
-  },
-  "arabe-n2-intermediaire-05": {
-    "slug": "arabe-n2-05",
-    "title": "Leçon 5 - Langue Arabe",
-    "summary": "Leçon 5 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 40,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-04"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 5"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 5 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 5 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "5"
-      ]
-    }
-  },
-  "arabe-n2-intermediaire-06": {
-    "slug": "arabe-n2-06",
-    "title": "Leçon 6 - Langue Arabe",
-    "summary": "Leçon 6 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 42,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-05"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 6"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 6 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 6 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "6"
-      ]
-    }
-  },
-  "arabe-n2-intermediaire-07": {
-    "slug": "arabe-n2-07",
-    "title": "Leçon 7 - Langue Arabe",
-    "summary": "Leçon 7 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 44,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-06"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 7"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 7 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 7 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "7"
-      ]
-    }
-  },
-  "arabe-n2-intermediaire-08": {
-    "slug": "arabe-n2-08",
-    "title": "Leçon 8 - Langue Arabe",
-    "summary": "Leçon 8 de Langue Arabe",
-    "level": "n2-intermediaire",
-    "subject": "Langue Arabe",
-    "ageGroup": "6-8 ans",
-    "estimatedMinutes": 46,
-    "isLocked": false,
-    "prerequisites": [
-      "arabe-n2-07"
-    ],
-    "learningObjectives": [
-      "Comprendre les concepts fondamentaux",
-      "Pratiquer les compétences acquises",
-      "Développer la pensée critique",
-      "Renforcer la confiance en soi"
-    ],
-    "keywords": [
-      "arabe",
-      "apprentissage",
-      "développement",
-      "compétences",
-      "n2"
-    ],
-    "sources": [
-      {
-        "title": "Langue Arabe - Niveau n2",
-        "url": "https://example.com/lessons",
-        "type": "website",
-        "description": "Ressources pour la leçon 8"
-      }
-    ],
-    "body": {
-      "introduction": {
-        "title": "Bienvenue dans la leçon 8 !",
-        "content": "Aujourd'hui, nous allons découvrir de nouveaux concepts en langue arabe."
-      },
-      "mainContent": [
-        {
-          "type": "concept",
-          "title": "Les concepts clés",
-          "content": "Dans cette leçon, nous allons explorer les concepts fondamentaux de la langue arabe."
-        },
-        {
-          "type": "example",
-          "title": "Exemples pratiques",
-          "content": "Voici des exemples concrets pour mieux comprendre les concepts de cette leçon."
-        },
-        {
-          "type": "activity",
-          "title": "Activités d'apprentissage",
-          "content": "Pratiquons ensemble pour maîtriser les concepts de cette leçon."
-        }
-      ],
-      "conclusion": {
-        "summary": "Nous avons découvert les concepts de la leçon 8 !",
-        "keyTakeaways": [
-          "Les concepts sont maintenant clairs",
-          "La pratique améliore la maîtrise",
-          "Chaque leçon construit sur la précédente"
-        ],
-        "nextSteps": [
-          "Pratiquer quotidiennement",
-          "Passer à la leçon suivante",
-          "Réviser les concepts appris"
-        ],
-        "additionalResources": []
-      }
-    },
-    "assessment": {
-      "quiz": [
-        {
-          "question": "Que faut-il faire pour maîtriser cette leçon ?",
-          "type": "multiple-choice",
-          "options": [
-            "Rien",
-            "Pratiquer régulièrement",
-            "Attendre",
-            "Éviter les défis"
-          ],
-          "correctAnswer": "Pratiquer régulièrement",
-          "explanation": "La pratique régulière est la clé du succès.",
-          "points": 10
-        }
-      ],
-      "passingScore": 80,
-      "timeLimit": 30
-    },
-    "metadata": {
-      "createdAt": "2025-08-30T06:37:37.898Z",
-      "updatedAt": "2025-08-30T06:37:37.898Z",
-      "author": "GrowSavoir",
-      "version": "1.0.0",
-      "tags": [
-        "arabe",
-        "n2",
-        "leçon",
-        "8"
-      ]
-    }
+  metadata: {
+    createdAt: "2025-09-01T00:00:00.000Z",
+    updatedAt: "2025-09-01T00:00:00.000Z",
+    author: "GrowSavoir",
+    version: "1.0.0",
+    tags: ["arabe", "n2", "formes"]
   }
+},
+
+"arabe-n2-intermediaire-02": {
+  slug: "arabe-n2-intermediaire-02",
+  title: "Lire et écrire les mots simples (liaison)",
+  summary: "Liaison entre lettres et lecture/écriture de mots à 2–3 lettres.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 35,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-01"],
+  learningObjectives: ["Appliquer la liaison", "Lire 2–3 lettres", "Écrire des mots simples"],
+  keywords: ["arabe", "liaison", "n2"],
+  sources: [{ title: "Table de liaison des lettres", url: "https://example.com/liaison", description: "Quelles lettres se lient/ne se lient pas ?" }],
+  body: {
+    introduction: { title: "La liaison, c’est la fluidité", content: "Certaines lettres **ne se lient pas à droite** : ا د ذ ر ز و." },
+    mainContent: [
+      { type: "concept", title: "Liaison", content: "Beaucoup se lient des deux côtés ; les 6 lettres ci-dessus coupent la chaîne." },
+      { type: "example", title: "Lecture guidée", content: "Lis : بَاب، كِتَاب، نُور، دَرْس." },
+      { type: "activity", title: "Dictée courte", content: "Écris 5 mots dictés (2–3 lettres)." }
+    ],
+    conclusion: {
+      summary: "Tu sais lier et lire/écrire des mots courts.",
+      keyTakeaways: ["6 lettres non-liantes à droite", "Liaison = fluence", "Pratique !"],
+      nextSteps: ["Leçon 3 (syllabes)"],
+      additionalResources: [{ title: "Exos liaison", description: "Exercices progressifs", url: "https://example.com/exos-liaison" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      {
+        question: "Quelles lettres ne se lient pas à droite ?",
+        type: "multiple-choice",
+        options: ["ب ت ث", "ا د ذ ر ز و", "ك ل م"],
+        correctAnswer: "ا د ذ ر ز و",
+        explanation: "Ce sont les 6 lettres non-liantes à droite.",
+        points: 2
+      }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "liaison"] }
+},
+
+"arabe-n2-intermediaire-03": {
+  slug: "arabe-n2-intermediaire-03",
+  title: "Syllabes : CV / CVC (segmentation)",
+  summary: "Découper et lire correctement les syllabes CV/CVC.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 40,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-02"],
+  learningObjectives: ["Segmenter en syllabes", "Lire CV/CVC", "Assembler rapidement"],
+  keywords: ["arabe", "syllabe", "CV", "CVC", "n2"],
+  sources: [{ title: "Méthode syllabique arabe", url: "https://example.com/syllabes", description: "Principes de découpage." }],
+  body: {
+    introduction: { title: "Lire par syllabes", content: "Lecture syllabique = **rapide et sûre** : CV, CVC." },
+    mainContent: [
+      { type: "concept", title: "CV/CVC", content: "Ex : با (CV), بَكْ (CVC)." },
+      { type: "example", title: "Exemples guidés", content: "Lis : بَا / بَكْ / مَا / مَدْ / سُور / كِتَاب." },
+      { type: "activity", title: "Découpage", content: "Découpe 6 mots en syllabes et lis-les à voix haute." }
+    ],
+    conclusion: {
+      summary: "Tu sais découper CV/CVC et lire plus vite.",
+      keyTakeaways: ["CV/CVC = base de fluence", "Segmentation = stabilité", "Lire à voix haute"],
+      nextSteps: ["Leçon 4 : shadda"],
+      additionalResources: [{ title: "Cartes syllabiques", description: "Jeu CV/CVC", url: "https://example.com/cartes-cv" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Quel mot est CVC ?", type: "multiple-choice", options: ["با", "بَكْ", "ما"], correctAnswer: "بَكْ", explanation: "CVC = consonne+voyelle+consonne.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "syllabes"] }
+},
+
+"arabe-n2-intermediaire-04": {
+  slug: "arabe-n2-intermediaire-04",
+  title: "Shadda (ّ) : la gémination",
+  summary: "Comprendre et lire la consonne doublée (shadda).",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 40,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-03"],
+  learningObjectives: ["Identifier la shadda", "Lire les syllabes avec shadda", "Écrire correctement"],
+  keywords: ["arabe", "shadda", "n2"],
+  sources: [{ title: "La shadda expliquée", url: "https://example.com/shadda", description: "Règle et exemples." }],
+  body: {
+    introduction: { title: "Force et durée", content: "La **shadda** double la consonne (peut porter une voyelle)." },
+    mainContent: [
+      { type: "concept", title: "Lire la shadda", content: "بَّ /bba/, بِّ /bbi/, بُّ /bbu/." },
+      { type: "example", title: "Mots fréquents", content: "رَبّ، حَقّ، شَدَّ، مَدَّ." },
+      { type: "activity", title: "Lecture/écriture", content: "Lis puis écris 8 mots contenant la shadda." }
+    ],
+    conclusion: {
+      summary: "Tu reconnais et lis la shadda sans hésitation.",
+      keyTakeaways: ["Consonne doublée", "Peut porter une voyelle", "Attention à la durée"],
+      nextSteps: ["Leçon 5 : sukûn"],
+      additionalResources: [{ title: "Feuilles shadda", description: "Exercices gradués", url: "https://example.com/exos-shadda" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Comment se lit **بَّ** ?", type: "multiple-choice", options: ["ba", "bba", "abba"], correctAnswer: "bba", explanation: "Consonne doublée + fatha.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "shadda"] }
+},
+
+"arabe-n2-intermediaire-05": {
+  slug: "arabe-n2-intermediaire-05",
+  title: "Sukûn (ْ) : arrêt de la voyelle",
+  summary: "Lire les syllabes fermées avec sukûn.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 35,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-04"],
+  learningObjectives: ["Identifier le sukûn", "Lire CVC", "Écrire avec sukûn"],
+  keywords: ["arabe", "sukûn", "CVC", "n2"],
+  sources: [{ title: "Le sukûn", url: "https://example.com/sukun", description: "Exemples et règles simples." }],
+  body: {
+    introduction: { title: "Silence sur la voyelle", content: "Le **sukûn** marque l’absence de voyelle." },
+    mainContent: [
+      { type: "concept", title: "CVC", content: "Ex : بَكْ (bak), مُسْلِم (muslim)." },
+      { type: "example", title: "Lecture", content: "Lis : بَكْ, مَدْرَسَة, سُوقْ." },
+      { type: "activity", title: "Dictée", content: "3 lignes de mots avec sukûn (CVC)." }
+    ],
+    conclusion: {
+      summary: "Tu sais lire/écrire avec sukûn.",
+      keyTakeaways: ["Pas de voyelle", "Structure CVC fréquente", "Lire clairement"],
+      nextSteps: ["Leçon 6 : tanwîn"],
+      additionalResources: [{ title: "Exos sukûn", description: "Séries graduées", url: "https://example.com/exos-sukun" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      {
+        question: "Dans **بَكْ**, la dernière lettre…",
+        type: "multiple-choice",
+        options: ["porte une voyelle", "porte un sukûn", "porte une shadda"],
+        correctAnswer: "porte un sukûn",
+        explanation: "CVC.",
+        points: 2
+      }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "sukûn"] }
+},
+
+"arabe-n2-intermediaire-06": {
+  slug: "arabe-n2-intermediaire-06",
+  title: "Tanwîn (ً ٍ ٌ) : an / in / un",
+  summary: "Lire les finales en –an / –in / –un.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 40,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-05"],
+  learningObjectives: ["Reconnaître le tanwîn", "Lire les finales", "Écrire avec tanwîn"],
+  keywords: ["arabe", "tanwîn", "n2"],
+  sources: [{ title: "Le tanwîn", url: "https://example.com/tanwin", description: "Prononciation et exemples." }],
+  body: {
+    introduction: { title: "Double voyelle", content: "Le **tanwîn** double la voyelle courte en fin de mot : -an/-in/-un." },
+    mainContent: [
+      { type: "concept", title: "Lecture", content: "كِتَابٌ، قَلَمٍ، بَيْتًا." },
+      { type: "example", title: "Exercices", content: "Lis/écris 8 mots avec tanwîn varié." },
+      { type: "activity", title: "Mini-phrase", content: "Rédige 3 phrases contenant des mots avec tanwîn." }
+    ],
+    conclusion: {
+      summary: "Tu lis les finales en -an/-in/-un.",
+      keyTakeaways: ["Double voyelle finale", "Nasalisation correcte", "Écriture soignée"],
+      nextSteps: ["Leçon 7 : hamza"],
+      additionalResources: [{ title: "Fiche tanwîn", description: "Repères visuels", url: "https://example.com/fiche-tanwin" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Le tanwîn **ٌ** se lit :", type: "multiple-choice", options: ["-an", "-in", "-un"], correctAnswer: "-un", explanation: "Damma double.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "tanwîn"] }
+},
+
+"arabe-n2-intermediaire-07": {
+  slug: "arabe-n2-intermediaire-07",
+  title: "Hamza (ء) : positions et supports",
+  summary: "Lire/écrire la hamza selon sa position (sur/alif/ya/waw/ligne).",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 45,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-06"],
+  learningObjectives: ["Supports de la hamza", "Règles simples", "Écriture propre"],
+  keywords: ["arabe", "hamza", "n2"],
+  sources: [{ title: "Hamza positions", url: "https://example.com/hamza", description: "Supports et cas fréquents." }],
+  body: {
+    introduction: { title: "Le coup de glotte", content: "La **hamza** peut être sur ا/و/ي ou sur la ligne ; support selon la voyelle la plus forte." },
+    mainContent: [
+      { type: "concept", title: "Supports", content: "أ (alif), ؤ (waw), ئ (ya), ء (ligne)." },
+      { type: "example", title: "Lecture", content: "سَأَلَ، سُؤَال، مِئَة، شَيْء." },
+      { type: "activity", title: "Écriture guidée", content: "Écris 10 mots variés avec hamza." }
+    ],
+    conclusion: {
+      summary: "Tu sais choisir/lire la hamza courante.",
+      keyTakeaways: ["Support = voyelle forte", "Cas fréquents : أؤئء", "Pratique d’écriture"],
+      nextSteps: ["Leçon 8 : alif maqṣūra"],
+      additionalResources: [{ title: "Exos hamza", description: "Séries graduées", url: "https://example.com/exos-hamza" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Dans **سُؤَال**, la hamza est portée par…", type: "multiple-choice", options: ["alif", "waw", "ya"], correctAnswer: "waw", explanation: "Hamza sur **ؤ**.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 12
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "hamza"] }
+},
+
+"arabe-n2-intermediaire-08": {
+  slug: "arabe-n2-intermediaire-08",
+  title: "Alif Maqṣūra (ى) vs Yā (ي)",
+  summary: "Différencier ى et ي en fin de mot (lecture/écriture).",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 35,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-07"],
+  learningObjectives: ["Reconnaître ى vs ي", "Lire sans confusion", "Écrire les finales"],
+  keywords: ["arabe", "alif maqṣūra", "ya", "n2"],
+  sources: [{ title: "Alif maqṣūra", url: "https://example.com/alif-maqsura", description: "Règles d’usage et exemples." }],
+  body: {
+    introduction: { title: "Deux lettres proches", content: "**ى** = a long final ; **ي** = i/ī." },
+    mainContent: [
+      { type: "concept", title: "Lecture", content: "هدى (hudā), فتى (fatā) vs نبيّ (nabiyy)." },
+      { type: "example", title: "Comparaisons", content: "سعى / سعي، هدى / هدي." },
+      { type: "activity", title: "Copie ciblée", content: "Écris 8 mots avec ى puis 8 avec ي." }
+    ],
+    conclusion: {
+      summary: "Plus de confusion entre ى et ي.",
+      keyTakeaways: ["ى = a long final", "ي = i/ī", "Regarder la **forme** finale"],
+      nextSteps: ["Leçon 9 : tā’ marbūṭa"],
+      additionalResources: [{ title: "Fiche ى/ي", description: "Repères visuels", url: "https://example.com/fiche-ya" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Dans **هدى**, la dernière lettre est…", type: "multiple-choice", options: ["ي", "ى", "ة"], correctAnswer: "ى", explanation: "Alif maqṣūra.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "ى vs ي"] }
+},
+
+"arabe-n2-intermediaire-09": {
+  slug: "arabe-n2-intermediaire-09",
+  title: "Tā’ marbūṭa (ة) vs Tā’ (ت)",
+  summary: "Lire/écrire correctement ة et ت en fin de mot.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 35,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-08"],
+  learningObjectives: ["Différencier ة vs ت", "Prononcer en pause/liaison", "Écrire les finales"],
+  keywords: ["arabe", "tā’ marbūṭa", "n2"],
+  sources: [{ title: "Tā’ marbūṭa", url: "https://example.com/ta-marbuta", description: "Règles simples et exemples." }],
+  body: {
+    introduction: { title: "Deux t en finale", content: "**ة** = -a(h) en pause ; **-t** en liaison. **ت** = t." },
+    mainContent: [
+      { type: "concept", title: "Lecture", content: "رحمة (raḥma[h]) vs بنت (bint)." },
+      { type: "example", title: "Contextes", content: "مدرسة جميلة → la **t** réapparaît en liaison." },
+      { type: "activity", title: "Écriture", content: "Dictée de 10 mots variés (ة / ت)." }
+    ],
+    conclusion: {
+      summary: "Tu gères les finales ة / ت.",
+      keyTakeaways: ["ة = a(h) en pause, t en liaison", "ت = t", "Regarder le contexte"],
+      nextSteps: ["Leçon 10 : madd"],
+      additionalResources: [{ title: "Fiches ة/ت", description: "Repères et exos", url: "https://example.com/fiche-ta" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "En pause, **ة** se prononce…", type: "multiple-choice", options: ["t", "d", "a(h)"], correctAnswer: "a(h)", explanation: "Comportement en pause.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "tā’ marbūṭa"] }
+},
+
+"arabe-n2-intermediaire-10": {
+  slug: "arabe-n2-intermediaire-10",
+  title: "Madd : prolongation du son (ـا ـو ـي) et signe de madd",
+  summary: "Comprendre et lire les prolongations (ā/ū/ī) et le signe de madd.",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 40,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-09"],
+  learningObjectives: ["Identifier les voyelles longues", "Durée correcte", "Reconnaître le signe de madd"],
+  keywords: ["arabe", "madd", "n2"],
+  sources: [{ title: "Le madd", url: "https://example.com/madd", description: "Durées et exemples simples." }],
+  body: {
+    introduction: { title: "Tirer le son", content: "ا (ā), و (ū), ي (ī). Le signe ~ peut marquer un madd supplémentaire." },
+    mainContent: [
+      { type: "concept", title: "Durée", content: "ā/ū/ī durent plus que a/u/i." },
+      { type: "example", title: "Lecture", content: "قال، نور، كريم." },
+      { type: "activity", title: "Exercices", content: "Lis 12 mots avec voyelles longues, puis écris-les." }
+    ],
+    conclusion: {
+      summary: "Tu maîtrises les prolongations.",
+      keyTakeaways: ["ا/و/ي = voyelles longues", "Durée régulière", "Repérer le signe de madd"],
+      nextSteps: ["Leçon 11 : ال + solaires/lunaires (approfondissement)"],
+      additionalResources: [{ title: "Cartes de lecture", description: "Mots à voyelles longues", url: "https://example.com/longues" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Dans **نور**, la voyelle longue est…", type: "multiple-choice", options: ["ا", "و", "ي"], correctAnswer: "و", explanation: "و = ū.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "madd"] }
+},
+
+"arabe-n2-intermediaire-11": {
+  slug: "arabe-n2-intermediaire-11",
+  title: "Article défini ال + lettres solaires/lunaires (approfondissement)",
+  summary: "Assimilation (solaires) vs maintien (lunaires).",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 40,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-10"],
+  learningObjectives: ["Identifier solaires/lunaires", "Appliquer l’assimilation", "Lire des GN"],
+  keywords: ["arabe", "ال", "solaires", "lunaires", "n2"],
+  sources: [{ title: "Solaires/Lunaires", url: "https://example.com/sol-lun", description: "Rappels et exercices." }],
+  body: {
+    introduction: { title: "Le soleil et la lune", content: "Solaires assimilent le **l** (الشَّمْس), lunaires le gardent (القَمَر)." },
+    mainContent: [
+      { type: "concept", title: "Listes", content: "Solaires : ت ث د ذ ر ز س ش ص ض ط ظ ل ن. Lunaires : ب ج ح خ ع غ ف ق ك م هـ و ي." },
+      { type: "example", title: "Lecture", content: "الشَّمْس، السَّلام، القَمَر، الكِتاب." },
+      { type: "activity", title: "Tri + lecture", content: "Classe 12 mots en solaire/lunaire puis lis-les." }
+    ],
+    conclusion: {
+      summary: "Tu appliques l’assimilation correctement.",
+      keyTakeaways: ["Solaires = assimilation du **l**", "Lunaires = maintien", "Repérer la 1re lettre"],
+      nextSteps: ["Leçon 12 : phrases simples"],
+      additionalResources: [{ title: "Cartes mémo", description: "Listes solaires/lunaires", url: "https://example.com/cartes-sol-lun" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Dans **السَّلام**, la lettre après ال est…", type: "multiple-choice", options: ["solaire", "lunaire"], correctAnswer: "solaire", explanation: "س = solaire.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 10
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "solaires-lunaires"] }
+},
+
+"arabe-n2-intermediaire-12": {
+  slug: "arabe-n2-intermediaire-12",
+  title: "Phrases simples : lecture et dictée",
+  summary: "Lire et écrire des phrases courtes (VSO / GN + adjectif).",
+  level: "n2-intermediaire",
+  subject: "Langue Arabe",
+  ageGroup: "7-10 ans",
+  estimatedMinutes: 45,
+  isLocked: true,
+  prerequisites: ["arabe-n2-intermediaire-11"],
+  learningObjectives: ["Lire des phrases courtes", "Ordre des mots simple", "Écrire une phrase correcte"],
+  keywords: ["arabe", "phrase", "dictée", "n2"],
+  sources: [{ title: "Phrases simples", url: "https://example.com/phrases-n2", description: "Modèles VSO et GN + adjectif." }],
+  body: {
+    introduction: { title: "On assemble", content: "On lit/écrit des phrases courtes : **verbe–sujet–complément** ou **GN + adjectif**." },
+    mainContent: [
+      { type: "concept", title: "Ordres simples", content: "كَتَبَ الوَلَدُ الدَّرسَ. / البَيْتُ جَمِيلٌ." },
+      { type: "example", title: "Lecture guidée", content: "Lis 6 phrases puis réponds à une question très simple." },
+      { type: "activity", title: "Dictée", content: "Dictée de 4 phrases (ponctuation minimale)." }
+    ],
+    conclusion: {
+      summary: "Tu lis/écris des phrases simples.",
+      keyTakeaways: ["VSO courant", "Accord GN + adjectif", "Ponctuation simple"],
+      nextSteps: ["Révision générale N2 et passage N3"],
+      additionalResources: [{ title: "Cahier de phrases", description: "Pages d’entraînement", url: "https://example.com/cahier-phrases" }]
+    }
+  },
+  assessment: {
+    quiz: [
+      { question: "Quel ordre correspond à **كَتَبَ الوَلَدُ الدَّرسَ** ?", type: "multiple-choice", options: ["SVO", "VSO", "OVS"], correctAnswer: "VSO", explanation: "verbe–sujet–objet.", points: 2 }
+    ],
+    passingScore: 80,
+    timeLimit: 12
+  },
+  metadata: { createdAt: "2025-09-01T00:00:00.000Z", updatedAt: "2025-09-01T00:00:00.000Z", author: "GrowSavoir", version: "1.0.0", tags: ["arabe", "n2", "phrases"] }
+}
 }

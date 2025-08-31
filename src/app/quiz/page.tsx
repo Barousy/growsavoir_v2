@@ -1,140 +1,133 @@
-import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { BookOpen, Clock, Trophy, Star } from 'lucide-react'
+// src/app/quiz/page.tsx
+import Link from "next/link";
+import { BookOpenCheck, Search, Lock } from "lucide-react";
+import { getAllLessons } from "@/data/all-lessons";
+import { hasUnlockedAccess } from "@/lib/access";
 
-export default function QuizPage() {
-  const availableQuizzes = [
-    {
-      id: '1',
-      title: 'Alphabet Arabe - Niveau Débutant',
-      subject: 'Langue Arabe',
-      duration: '10 min',
-      questions: 5,
-      difficulty: 'Débutant',
-      description: 'Testez vos connaissances sur l\'alphabet arabe',
-      color: 'from-blue-500 to-blue-600',
-      emoji: '📖'
-    },
-    {
-      id: '2',
-      title: 'Introduction à l\'Informatique',
-      subject: 'Informatique',
-      duration: '15 min',
-      questions: 8,
-      difficulty: 'Débutant',
-      description: 'Évaluez votre compréhension des bases de l\'informatique',
-      color: 'from-green-500 to-green-600',
-      emoji: '💻'
-    },
-    {
-      id: '3',
-      title: 'Les Six Piliers de la Foi',
-      subject: 'Aqida',
-      duration: '20 min',
-      questions: 10,
-      difficulty: 'Débutant',
-      description: 'Testez vos connaissances sur les fondements de la foi islamique',
-      color: 'from-yellow-500 to-yellow-600',
-      emoji: '🕌'
-    }
-  ]
+type SimpleQuiz = {
+  slug: string;
+  title: string;
+  subject: string;
+  level: string;
+  isLocked: boolean;
+  questionCount: number;
+};
+
+export const metadata = { title: "Quiz — GrowSavoir" };
+
+export default async function QuizIndexPage() {
+  const lessons = Object.values(getAllLessons());
+  const unlocked = await hasUnlockedAccess();
+
+  const quizzes: SimpleQuiz[] = lessons
+    .filter((l) => l.assessment?.quiz && l.assessment.quiz.length > 0)
+    .map((l) => ({
+      slug: l.slug,
+      title: l.title,
+      subject: l.subject,
+      level: l.level,
+      isLocked: !!l.isLocked,
+      questionCount: l.assessment!.quiz.length,
+    }))
+    .sort((a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Quiz et Évaluations
-            </h1>
-            <p className="mt-4 text-lg text-gray-600">
-              Testez vos connaissances et suivez votre progression
-            </p>
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex items-start justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 flex items-center">
+                <BookOpenCheck className="h-7 w-7 text-blue-600 mr-2" />
+                Quiz — Tous les sujets
+              </h1>
+              <p className="text-gray-600 mt-2">
+                {quizzes.length} quiz disponibles dans les leçons.
+              </p>
+            </div>
+            <Link
+              href="/catalogue"
+              className="text-blue-600 hover:text-blue-700 underline mt-1"
+            >
+              ← Retour au catalogue
+            </Link>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Quiz Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {availableQuizzes.map((quiz) => (
-            <Card key={quiz.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              {/* Quiz Header */}
-              <div className={`bg-gradient-to-r ${quiz.color} p-6 text-white`}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl">{quiz.emoji}</span>
-                  <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                    {quiz.difficulty}
-                  </Badge>
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6 flex items-center">
+          <Search className="h-5 w-5 text-gray-400 mr-3" />
+          <input
+            type="text"
+            placeholder="Rechercher un quiz (titre ou matière)…"
+            className="w-full outline-none"
+            onChange={(e) => {
+              const q = e.currentTarget.value.toLowerCase();
+              const cards = document.querySelectorAll<HTMLElement>("[data-qcard]");
+              cards.forEach((c) => {
+                const hay = (c.dataset.hay || "").toLowerCase();
+                c.style.display = hay.includes(q) ? "" : "none";
+              });
+            }}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {quizzes.map((q) => {
+            const hay = `${q.title} ${q.subject} ${q.level}`;
+            const locked = q.isLocked && !unlocked;
+            return (
+              <div
+                key={q.slug}
+                data-qcard
+                data-hay={hay}
+                className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="text-sm text-gray-500">{q.subject} • {q.level.toUpperCase()}</div>
+                    <h2 className="text-lg font-semibold text-gray-900 mt-1">
+                      {q.title}
+                    </h2>
+                  </div>
+                  {locked ? (
+                    <span className="inline-flex items-center text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-700">
+                      <Lock className="h-3.5 w-3.5 mr-1" /> Verrouillé
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                      {q.questionCount} questions
+                    </span>
+                  )}
                 </div>
-                <h3 className="text-xl font-bold">{quiz.title}</h3>
-                <p className="text-sm opacity-90 mt-2">{quiz.description}</p>
+
+                <div className="mt-4">
+                  {locked ? (
+                    <Link
+                      href="/unlock"
+                      className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    >
+                      Déverrouiller l’accès
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`/quiz/${q.slug}`}
+                      className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                    >
+                      Commencer le quiz
+                    </Link>
+                  )}
+                </div>
               </div>
-
-              {/* Quiz Content */}
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  {/* Subject */}
-                  <div className="flex items-center space-x-2">
-                    <BookOpen className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">{quiz.subject}</span>
-                  </div>
-
-                  {/* Duration */}
-                  <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">{quiz.duration}</span>
-                  </div>
-
-                  {/* Questions */}
-                  <div className="flex items-center space-x-2">
-                    <Trophy className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">{quiz.questions} questions</span>
-                  </div>
-
-                  {/* Action Button */}
-                  <Link href={`/quiz/${quiz.id}`} className="block">
-                    <Button className="w-full">
-                      Commencer le Quiz
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Star className="h-8 w-8 text-white" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Prêt à tester vos connaissances ?
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Choisissez un quiz ci-dessus et commencez à évaluer votre niveau. 
-              Chaque quiz vous donnera un score et des badges pour récompenser vos efforts.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/catalogue">
-                <Button variant="outline">
-                  Explorer les Leçons
-                </Button>
-              </Link>
-              <Link href="/auth/register">
-                <Button>
-                  Créer un Compte
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+        {quizzes.length === 0 && (
+          <p className="text-center text-gray-500 mt-8">Aucun quiz trouvé.</p>
+        )}
+      </main>
     </div>
-  )
+  );
 }

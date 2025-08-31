@@ -4,7 +4,7 @@ import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucid
 import Link from 'next/link'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
-import type { Lesson } from '@/data/lessons'
+import { hasUnlockedAccess } from '@/lib/access'
 
 export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -14,7 +14,27 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   if (!lesson) {
     notFound()
   }
-
+  const unlocked = hasUnlockedAccess()
+  if (lesson.isLocked && !unlocked) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-xl mx-auto px-4 py-16">
+          <div className="bg-white rounded-xl border border-gray-200 p-8 text-center">
+            <h1 className="text-2xl font-bold mb-2">Contenu verrouillé</h1>
+            <p className="text-gray-600 mb-6">
+              Cette leçon est réservée (N2/N3/N4). Entre la clé pour tout déverrouiller.
+            </p>
+            <a
+              href="/unlock"
+              className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Déverrouiller l’accès
+            </a>
+          </div>
+        </div>
+      </div>
+    )
+  }
   const level = getLevelById(lesson?.level || 'debutant')
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
 
@@ -228,22 +248,22 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="text-lg font-semibold text-blue-900 mb-3">Ressources Additionnelles :</h3>
             <div className="space-y-3">
-              {lesson.body.conclusion.additionalResources.map(
-                (resource, idx) => (
-                  <div key={idx} className="bg-white rounded-lg p-3 border border-blue-100">
-                    <h4 className="font-medium text-blue-900 mb-1">{resource.title}</h4>
-                    <p className="text-sm text-gray-600 mb-2">{resource.description}</p>
-                    <a
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-blue-600 hover:text-blue-800 underline"
-                    >
-                      Accéder à la ressource →
-                    </a>
-                  </div>
-                )
-              )}
+            {(lesson.body.conclusion.additionalResources ?? []).length > 0 && (
+  <section className="mt-8">
+    <h2 className="text-lg font-semibold mb-3">Pour aller plus loin</h2>
+    <ul className="list-disc pl-5 space-y-1">
+      {(lesson.body.conclusion.additionalResources ?? []).map((r, i) => (
+        <li key={i}>
+          <a href={r.url} className="text-blue-600 hover:underline" target="_blank" rel="noreferrer">
+            {r.title}
+          </a>
+          {r.description ? <span className="text-gray-600"> — {r.description}</span> : null}
+          {r.type ? <span className="ml-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs">{r.type}</span> : null}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
             </div>
           </div>
         </div>
@@ -254,23 +274,22 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             📚 Sources et Références
           </h2>
           <div className="space-y-4">
-            {lesson.sources.map((source, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <h3 className="font-medium text-gray-900 mb-1">{source.title}</h3>
-                <p className="text-sm text-gray-600 mb-2">{source.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 capitalize">{source.type}</span>
-                  <a
-                    href={source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-600 hover:text-blue-800 underline"
-                  >
-                    Visiter →
-                  </a>
-                </div>
-              </div>
-            ))}
+          {(lesson.sources ?? []).length > 0 && (
+  <section className="mt-8">
+    <h2 className="text-lg font-semibold mb-3">Ressources</h2>
+    <ul className="list-disc pl-5 space-y-1">
+      {(lesson.sources ?? []).map((r, i) => (
+        <li key={i}>
+          <a href={r.url} className="text-blue-600 hover:underline" target="_blank" rel="noreferrer">
+            {r.title}
+          </a>
+          {r.description ? <span className="text-gray-600"> — {r.description}</span> : null}
+          {r.type ? <span className="ml-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs">{r.type}</span> : null}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
           </div>
         </div>
 
