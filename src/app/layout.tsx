@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { cookies } from "next/headers";
 import { defaultLocale, isRtl, Locale, locales } from "@/i18n/config";
 
@@ -102,13 +103,15 @@ export default async function RootLayout({
           '--font-geist-mono': geistMono.variable,
         } as React.CSSProperties}
       >
-        <NextAuthProvider>
-          <Navigation />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </NextAuthProvider>
+        <ThemeProvider>
+          <NextAuthProvider>
+            <Navigation />
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </NextAuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
