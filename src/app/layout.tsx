@@ -59,12 +59,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const localeCookie = cookies().get('locale')?.value as Locale | undefined
+  const cookieStore = await cookies()
+  const localeCookie = cookieStore.get('locale')?.value as Locale | undefined
   const locale = locales.includes(localeCookie as Locale) ? (localeCookie as Locale) : defaultLocale
   return (
     <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'}>

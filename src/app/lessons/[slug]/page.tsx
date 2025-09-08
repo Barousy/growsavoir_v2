@@ -9,10 +9,10 @@ import { hasUnlockedAccess } from '@/lib/access'
 import PrintButton from '@/components/PrintButton'
 
 
-type SlugParams = Promise<{ slug: string }> | undefined
+type SlugParams = Promise<{ slug: string }>
 
-export default async function LessonPage({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export default async function LessonPage({ params }: { params: SlugParams }) {
+  const { slug } = await params
 
 
   // Récupérer la leçon basée sur le slug
