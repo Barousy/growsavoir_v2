@@ -4,12 +4,21 @@ import React from 'react'
 import ReactMarkdown, { type Components } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 
 type RichTextProps = {
   markdown: string
   className?: string
   // RTL pour l'arabe
   rtl?: boolean
+}
+
+const schema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    code: [...(defaultSchema.attributes.code || []), ['className']],
+  },
 }
 
 // Type “safe” pour le renderer <code>, compatible avec toutes versions
@@ -67,7 +76,7 @@ export default function RichText({ markdown, className, rtl }: RichTextProps) {
     <div className={className ?? 'prose prose-lg max-w-none'} dir={rtl ? 'rtl' : undefined}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
+        rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
         components={components}
       >
         {markdown}

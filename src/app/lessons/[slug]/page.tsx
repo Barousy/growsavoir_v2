@@ -1,26 +1,26 @@
 import RichText from '@/components/RichText'
 import { notFound } from 'next/navigation'
 import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft } from 'lucide-react'
-import PrintButton from '@/components/PrintButton'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
+import PrintButton from '@/components/PrintButton'
+
 
 type SlugParams = Promise<{ slug: string }> | undefined
 
-// no-op helper removed (was unused)
+export default async function LessonPage({ params }: { params: { slug: string } }) {
+  const { slug } = params
 
-export default async function LessonPage({ params }: { params: SlugParams }) {
-  const resolved = params ? await params : undefined
-  const slug = resolved?.slug ?? ''
 
   // Récupérer la leçon basée sur le slug
   const lesson = getLessonBySlug(slug)
   if (!lesson) {
     notFound()
   }
-  const unlocked = hasUnlockedAccess()
+  const unlocked = await hasUnlockedAccess()
   if (lesson.isLocked && !unlocked) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -44,7 +44,6 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
   const level = getLevelById(lesson?.level || 'debutant')
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
 
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -62,6 +61,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
               </Link>
             </div>
             
+
             <div className="flex items-center gap-3 sm:gap-4">
               <PrintButton />
               
@@ -127,6 +127,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
           <RichText markdown={lesson.body.introduction.content} rtl={isArabic} />
 
           {lesson.body.introduction.image && (
+
             <div className="mt-4 sm:mt-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
