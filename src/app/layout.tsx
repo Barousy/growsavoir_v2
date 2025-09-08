@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 import { cookies } from "next/headers";
 import { defaultLocale, isRtl, Locale, locales } from "@/i18n/config";
@@ -78,7 +79,10 @@ export default async function RootLayout({
       >
         <NextAuthProvider>
           <Navigation />
-          {children}
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>
