@@ -83,7 +83,7 @@ const SubjectSearchDropdown: React.FC<SubjectSearchDropdownProps> = ({
       <button
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
-        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm hover:border-blue-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 group"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-label="Sélectionner une matière"
@@ -125,18 +125,18 @@ const SubjectSearchDropdown: React.FC<SubjectSearchDropdownProps> = ({
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 max-h-80 overflow-hidden animate-fade-in-up">
           {/* Search Input */}
-          <div className="p-3 border-b border-gray-100">
+          <div className="p-4 border-b border-gray-100 bg-gray-50/50">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Tapez pour filtrer..."
+                placeholder="Tapez pour filtrer les matières..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white shadow-sm"
                 autoComplete="off"
               />
             </div>
@@ -151,21 +151,21 @@ const SubjectSearchDropdown: React.FC<SubjectSearchDropdownProps> = ({
                     <Link
                       href={`/catalogue/${subject.key}`}
                       onClick={() => handleSubjectSelect(subject)}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group"
+                      className="flex items-center gap-4 px-4 py-4 hover:bg-blue-50 transition-all duration-200 group border-b border-gray-50 last:border-b-0"
                     >
                       <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
                         {subject.emoji}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <h3 className="font-medium text-gray-900 group-hover:text-blue-700 transition-colors">
+                        <div className="flex items-center justify-between mb-1">
+                          <h3 className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
                             {subject.title}
                           </h3>
-                          <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                          <span className="text-xs text-blue-600 bg-blue-100 px-2.5 py-1 rounded-full font-medium">
                             {subject.lessonCount} leçons
                           </span>
                         </div>
-                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
                           {subject.description}
                         </p>
                       </div>
@@ -175,20 +175,20 @@ const SubjectSearchDropdown: React.FC<SubjectSearchDropdownProps> = ({
                 ))}
               </ul>
             ) : (
-              <div className="px-4 py-8 text-center text-gray-500">
-                <Search className="h-8 w-8 mx-auto mb-2 text-gray-300" />
-                <p>Aucune matière trouvée</p>
-                <p className="text-sm">Essayez un autre terme de recherche</p>
+              <div className="px-6 py-12 text-center text-gray-500">
+                <Search className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                <p className="font-medium text-gray-700 mb-1">Aucune matière trouvée</p>
+                <p className="text-sm text-gray-500">Essayez un autre terme de recherche</p>
               </div>
             )}
           </div>
 
           {/* Quick Access to All Subjects */}
-          <div className="border-t border-gray-100 p-3 bg-gray-50">
+          <div className="border-t border-gray-100 p-4 bg-gradient-to-r from-gray-50 to-blue-50">
             <Link
               href="/catalogue"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+              className="flex items-center justify-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-semibold transition-colors py-2 px-4 rounded-lg hover:bg-white hover:shadow-sm"
             >
               <BookOpen className="h-4 w-4" />
               Voir toutes les matières
