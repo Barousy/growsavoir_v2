@@ -8,9 +8,104 @@ import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
 import PrintButton from '@/components/PrintButton'
 import Breadcrumbs from '@/components/Breadcrumbs'
-
+import StructuredData from '@/components/StructuredData'
+import { Metadata } from 'next'
 
 type SlugParams = Promise<{ slug: string }>
+
+// Génération des métadonnées dynamiques pour chaque leçon
+export async function generateMetadata({ params }: { params: SlugParams }): Promise<Metadata> {
+  const { slug } = await params
+  const lesson = getLessonBySlug(slug)
+  
+  if (!lesson) {
+    return {
+      title: 'Leçon non trouvée - GrowSavoir',
+      description: 'Cette leçon n\'existe pas sur GrowSavoir.'
+    }
+  }
+
+  const level = getLevelById(lesson.level)
+  const levelName = level?.name || 'Niveau inconnu'
+  
+  // Description optimisée pour le SEO
+  const description = `${lesson.summary} | ${lesson.subject} - ${levelName} | Apprenez avec GrowSavoir, plateforme éducative moderne pour l'apprentissage des langues et sciences islamiques.`
+  
+  // Mots-clés pour le SEO
+  const keywords = [
+    'growsavoir',
+    'apprentissage',
+    'éducation',
+    'cours en ligne',
+    lesson.subject.toLowerCase(),
+    levelName.toLowerCase(),
+    ...lesson.keywords,
+    'islamique',
+    'arabe',
+    'français',
+    'mathématiques'
+  ].join(', ')
+
+  return {
+    title: `${lesson.title} - ${lesson.subject} | GrowSavoir`,
+    description,
+    keywords,
+    authors: [{ name: 'GrowSavoir' }],
+    creator: 'GrowSavoir',
+    publisher: 'GrowSavoir',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL('https://growsavoir.com'),
+    alternates: {
+      canonical: `/lessons/${slug}`,
+    },
+    openGraph: {
+      title: lesson.title,
+      description: lesson.summary,
+      url: `https://growsavoir.com/lessons/${slug}`,
+      siteName: 'GrowSavoir',
+      locale: 'fr_FR',
+      type: 'article',
+      publishedTime: new Date().toISOString(),
+      authors: ['GrowSavoir'],
+      section: lesson.subject,
+      tags: lesson.keywords,
+      images: [
+        {
+          url: '/og-lesson-image.jpg', // Image à créer
+          width: 1200,
+          height: 630,
+          alt: lesson.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: lesson.title,
+      description: lesson.summary,
+      images: ['/og-lesson-image.jpg'],
+      creator: '@growsavoir',
+      site: '@growsavoir',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    verification: {
+      google: 'your-google-verification-code', // À remplacer par votre code
+    },
+  }
+}
 
 export default async function LessonPage({ params }: { params: SlugParams }) {
   const { slug } = await params
@@ -47,6 +142,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <StructuredData lesson={lesson} />
       {/* Header */}
       <div className="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

@@ -18,31 +18,53 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: "GrowSavoir - Site Éducatif Islamique Moderne",
-  description: "Apprentissage ludique et structuré en langues, sciences, mathématiques et sciences islamiques",
-  keywords: ["éducation", "islam", "arabe", "sciences", "mathématiques", "apprentissage"],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://growsavoir.com'),
+  title: {
+    default: "GrowSavoir - Plateforme Éducative Islamique Moderne",
+    template: "%s | GrowSavoir"
+  },
+  description: "Plateforme éducative moderne pour l'apprentissage des langues (arabe, français, anglais), sciences, mathématiques et sciences islamiques. Cours structurés pour tous les âges avec approche progressive et ludique.",
+  keywords: [
+    "éducation islamique", "apprentissage arabe", "cours en ligne", "sciences islamiques",
+    "mathématiques", "langue française", "anglais", "fiqh", "aqida", "sira", "histoire islamique",
+    "plateforme éducative", "cours gratuits", "apprentissage progressif", "enfants", "adolescents"
+  ],
   authors: [{ name: "GrowSavoir Team" }],
-  icons: { icon: [{ url: '/icon.svg', type: 'image/svg+xml' }] },
+  creator: "GrowSavoir",
+  publisher: "GrowSavoir",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: { 
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/icon.svg', type: 'image/svg+xml' }]
+  },
+  manifest: '/manifest.json',
   openGraph: {
-    title: "GrowSavoir - Site Éducatif Islamique Moderne",
-    description: "Apprentissage ludique et structuré en langues, sciences, mathématiques et sciences islamiques",
+    title: "GrowSavoir - Plateforme Éducative Islamique Moderne",
+    description: "Plateforme éducative moderne pour l'apprentissage des langues, sciences et sciences islamiques. Cours structurés pour tous les âges.",
     type: "website",
     locale: "fr_FR",
+    url: "https://growsavoir.com",
+    siteName: "GrowSavoir",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-homepage.jpg",
         width: 1200,
         height: 630,
-        alt: 'GrowSavoir - Site Éducatif Islamique Moderne',
+        alt: "GrowSavoir - Plateforme Éducative Islamique",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'GrowSavoir - Site Éducatif Islamique Moderne',
-    description: 'Apprentissage ludique et structuré en langues, sciences, mathématiques et sciences islamiques',
-    images: ['/og-image.jpg'],
+    card: "summary_large_image",
+    title: "GrowSavoir - Plateforme Éducative Islamique Moderne",
+    description: "Plateforme éducative moderne pour l'apprentissage des langues, sciences et sciences islamiques.",
+    images: ["/og-homepage.jpg"],
+    creator: "@growsavoir",
+    site: "@growsavoir",
   },
   robots: {
     index: true,
@@ -56,7 +78,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'votre-code-verification-google',
+    google: 'your-google-verification-code', // À remplacer par votre code
+  },
+  alternates: {
+    canonical: "https://growsavoir.com",
   },
 };
 
