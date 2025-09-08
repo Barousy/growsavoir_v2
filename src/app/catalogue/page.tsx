@@ -112,30 +112,30 @@ export default async function CataloguePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
               Catalogue des Leçons
             </h1>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-3 text-base sm:text-lg text-gray-600">
               Découvrez {totalLessons} leçon{totalLessons > 1 ? 's' : ''} organisées par matière et par niveau
             </p>
 
             {/* État d'accès global */}
             <div className="mt-6 flex items-center justify-center">
               {unlocked ? (
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium ring-1 ring-inset ring-green-200">
                   <ShieldCheck className="h-4 w-4" />
                   Accès avancé activé — N2/N3/N4 déverrouillés
                 </span>
               ) : (
                 <Link
                   href="/unlock"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-800 text-sm font-medium hover:bg-gray-200"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white shadow-sm"
                 >
                   <Lock className="h-4 w-4" />
-                  Contenu avancé verrouillé — Déverrouiller l&apos;accès
+                  Déverrouiller l&apos;accès avancé
                 </Link>
               )}
             </div>
@@ -166,19 +166,19 @@ export default async function CataloguePage() {
           {subjects.map((subject) => (
             <div
               key={subject.key}
-              className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+              className="group bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition shadow-gray-100"
             >
               {/* Subject Header */}
               <div className={`bg-gradient-to-r ${subject.color} p-6 text-white`}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl">{subject.emoji}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-4xl drop-shadow-sm">{subject.emoji}</span>
                   <div className="text-right">
-                    <div className="text-sm opacity-90">Leçons</div>
-                    <div className="text-2xl font-bold">{subject.lessonCount}</div>
+                    <div className="text-xs/5 opacity-90">Leçons</div>
+                    <div className="text-2xl font-extrabold">{subject.lessonCount}</div>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold">{subject.title}</h3>
-                <p className="text-sm opacity-90 mt-2">{subject.description}</p>
+                <h3 className="text-xl font-semibold tracking-tight">{subject.title}</h3>
+                <p className="text-sm/6 opacity-95 mt-2">{subject.description}</p>
               </div>
 
               {/* Subject Content */}
@@ -191,7 +191,7 @@ export default async function CataloguePage() {
                       {ageGroups.map((group) => (
                         <span
                           key={group.key}
-                          className={`px-2 py-1 rounded text-xs font-medium ${group.color}`}
+                          className={`px-2.5 py-1 rounded-full text-[11px] font-medium ${group.color} ring-1 ring-inset ring-black/5`}
                         >
                           {group.title}
                         </span>
@@ -229,9 +229,10 @@ export default async function CataloguePage() {
                   {/* Action Button */}
                   <Link
                     href={`/catalogue/${subject.key}`}
-                    className="w-full bg-gray-900 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-gray-900 text-white py-2.5 px-4 rounded-lg text-sm font-medium hover:bg-black transition-colors flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                    aria-label={`Explorer ${subject.title}`}
                   >
-                    <BookOpen className="h-4 w-4" />
+                    <BookOpen className="h-4 w-4 transition-transform group-hover:scale-110" />
                     <span>Explorer {subject.title}</span>
                   </Link>
                 </div>

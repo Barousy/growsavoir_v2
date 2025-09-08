@@ -1,8 +1,9 @@
 // src/app/quiz/page.tsx
 import Link from "next/link";
-import { BookOpenCheck, Search, Lock } from "lucide-react";
+import { BookOpenCheck, Lock } from "lucide-react";
 import { getAllLessons } from "@/data/all-lessons";
 import { hasUnlockedAccess } from "@/lib/access";
+import QuizSearch from "@/components/QuizSearch";
 
 type SimpleQuiz = {
   slug: string;
@@ -56,22 +57,7 @@ export default async function QuizIndexPage() {
       </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6 flex items-center">
-          <Search className="h-5 w-5 text-gray-400 mr-3" />
-          <input
-            type="text"
-            placeholder="Rechercher un quiz (titre ou matière)…"
-            className="w-full outline-none"
-            onChange={(e) => {
-              const q = e.currentTarget.value.toLowerCase();
-              const cards = document.querySelectorAll<HTMLElement>("[data-qcard]");
-              cards.forEach((c) => {
-                const hay = (c.dataset.hay || "").toLowerCase();
-                c.style.display = hay.includes(q) ? "" : "none";
-              });
-            }}
-          />
-        </div>
+        <QuizSearch />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {quizzes.map((q) => {

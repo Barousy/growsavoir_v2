@@ -14,7 +14,7 @@ export interface Lesson {
   sources: Array<{
     title: string
     url: string
-    type: 'website' | 'video' | 'document' | 'book'
+    type?: 'website' | 'video' | 'document' | 'book'
     description: string
   }>
   body: {
