@@ -1,13 +1,19 @@
 import RichText from '@/components/RichText'
 import { notFound } from 'next/navigation'
-import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucide-react'
+import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft } from 'lucide-react'
+import PrintButton from '@/components/PrintButton'
 import Link from 'next/link'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
 
-export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+type SlugParams = Promise<{ slug: string }> | undefined
+
+// no-op helper removed (was unused)
+
+export default async function LessonPage({ params }: { params: SlugParams }) {
+  const resolved = params ? await params : undefined
+  const slug = resolved?.slug ?? ''
 
   // Récupérer la leçon basée sur le slug
   const lesson = getLessonBySlug(slug)
@@ -38,50 +44,34 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const level = getLevelById(lesson?.level || 'debutant')
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
 
-  const handlePrint = () => {
-    try {
-      // Vérifier si window est disponible (côté client)
-      if (typeof window !== 'undefined') {
-        window.print()
-      }
-    } catch (error) {
-      console.error('Erreur lors de l\'impression:', error)
-      // Optionnel : afficher un message d'erreur à l'utilisateur
-    }
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-between gap-4 sm:gap-6 flex-wrap">
+            <div className="flex items-center gap-3 sm:gap-4">
               <Link
                 href="/catalogue"
-                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+                className="flex items-center text-gray-700 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-md px-1"
+                aria-label="Retour au catalogue"
               >
                 <ArrowLeft className="h-5 w-5 mr-2" />
                 Retour au catalogue
               </Link>
             </div>
             
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={handlePrint}
-                className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <Printer className="h-4 w-4 mr-2" />
-                Imprimer
-              </button>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <PrintButton />
               
               {lesson.isLocked ? (
-                <div className="flex items-center px-4 py-2 text-gray-500 bg-gray-100 rounded-lg">
+                <div className="flex items-center px-4 py-2 text-gray-600 bg-gray-100 rounded-lg" aria-live="polite">
                   <Lock className="h-4 w-4 mr-2" />
                   Contenu verrouillé
                 </div>
               ) : (
-                <div className="flex items-center px-4 py-2 text-green-600 bg-green-100 rounded-lg">
+                <div className="flex items-center px-4 py-2 text-green-700 bg-green-100 rounded-lg" aria-live="polite">
                   <Unlock className="h-4 w-4 mr-2" />
                   Contenu débloqué
                 </div>
@@ -92,19 +82,19 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
       </div>
 
       {/* Lesson Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Lesson Header */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <div className="flex items-start justify-between mb-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8 mb-6 sm:mb-8">
+          <div className="flex items-start justify-between mb-4 sm:mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-snug">
                 {lesson.title}
               </h1>
-              <p className="text-lg text-gray-600 mb-4">
+              <p className="text-base sm:text-lg text-gray-700 mb-4">
                 {lesson.summary}
               </p>
               
-              <div className="flex items-center space-x-6 text-sm text-gray-500">
+              <div className="flex items-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
                 <div className="flex items-center">
                   <BookOpen className="h-4 w-4 mr-2" />
                   {lesson.subject}
@@ -121,7 +111,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             </div>
             
             <div className="text-right">
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600" aria-hidden>
                 📖
               </div>
             </div>
@@ -129,26 +119,26 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Introduction */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8 mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
             🎯 {lesson.body.introduction.title}
           </h2>
 
           <RichText markdown={lesson.body.introduction.content} rtl={isArabic} />
 
           {lesson.body.introduction.image && (
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={lesson.body.introduction.image}
                 alt={lesson.body.introduction.title}
-                className="rounded-lg shadow-sm"
+                className="rounded-lg shadow-sm w-full h-auto"
               />
             </div>
           )}
 
           {lesson.body.introduction.videoUrl && (
-            <div className="mt-6 aspect-video">
+            <div className="mt-4 sm:mt-6 aspect-video">
               <iframe
                 src={lesson.body.introduction.videoUrl}
                 title="intro-video"
@@ -161,10 +151,10 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Main Content */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {lesson.body.mainContent.map((section, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
                 {section.type === 'concept' && '📚'}
                 {section.type === 'example' && '💡'}
                 {section.type === 'activity' && '🎮'}
@@ -177,14 +167,14 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
               {/* Examples */}
               {section.examples && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-semibold text-blue-900 mb-4">Exemples :</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 sm:p-6 mb-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-blue-900 mb-3 sm:mb-4">Exemples :</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {section.examples.map((example, idx) => (
                       <div key={idx} className="bg-white rounded-lg p-4 border border-blue-100">
                         <div className="text-center">
                           {example.code && (
-                            <div className="text-3xl font-bold text-blue-600 mb-2">
+                            <div className="text-2xl sm:text-3xl font-bold text-blue-700 mb-2">
                               {example.code}
                             </div>
                           )}
@@ -208,8 +198,8 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Conclusion */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8 mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
             📝 Conclusion
           </h2>
 
@@ -220,7 +210,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
           {/* Key Takeaways */}
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-            <h3 className="text-lg font-semibold text-yellow-900 mb-3">Points Clés :</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-yellow-900 mb-3">Points Clés :</h3>
             <ul className="space-y-2">
               {lesson.body.conclusion.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start space-x-2 text-yellow-800">
@@ -233,7 +223,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
           {/* Next Steps */}
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-            <h3 className="text-lg font-semibold text-green-900 mb-3">Prochaines Étapes :</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-green-900 mb-3">Prochaines Étapes :</h3>
             <ul className="space-y-2">
               {lesson.body.conclusion.nextSteps.map((step, idx) => (
                 <li key={idx} className="flex items-start space-x-2 text-green-800">
@@ -246,7 +236,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
           {/* Additional Resources */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Ressources Additionnelles :</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-blue-900 mb-3">Ressources Additionnelles :</h3>
             <div className="space-y-3">
             {(lesson.body.conclusion.additionalResources ?? []).length > 0 && (
   <section className="mt-8">
@@ -258,7 +248,6 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             {r.title}
           </a>
           {r.description ? <span className="text-gray-600"> — {r.description}</span> : null}
-          {r.type ? <span className="ml-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs">{r.type}</span> : null}
         </li>
       ))}
     </ul>
@@ -284,7 +273,6 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             {r.title}
           </a>
           {r.description ? <span className="text-gray-600"> — {r.description}</span> : null}
-          {r.type ? <span className="ml-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs">{r.type}</span> : null}
         </li>
       ))}
     </ul>
@@ -294,21 +282,22 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Navigation */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-8">
-          <div className="flex items-center justify-between">
-            <button className="flex items-center px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-6 sm:mt-8">
+          <div className="flex items-center justify-between gap-3">
+            <button className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
               ← Leçon précédente
             </button>
             
             <Link
               href={`/quiz/${lesson.slug}`}
-              className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              aria-label="Commencer le quiz"
             >
               Commencer le quiz
               <Trophy className="h-4 w-4 ml-2" />
             </Link>
             
-            <button className="flex items-center px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+            <button className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
               Leçon suivante →
             </button>
           </div>
