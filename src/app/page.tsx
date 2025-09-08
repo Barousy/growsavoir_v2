@@ -83,6 +83,26 @@ export default function HomePage() {
       gradient: 'from-pink-50 to-pink-100',
       stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
+    {
+      key: 'fiqh',
+      title: 'Fiqh',
+      emoji: '⚖️',
+      description: 'Jurisprudence islamique et règles pratiques',
+      color: 'from-emerald-500 to-emerald-600',
+      icon: Building2,
+      gradient: 'from-emerald-50 to-emerald-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
+    },
+    {
+      key: 'sira',
+      title: 'Sira',
+      emoji: '📖',
+      description: 'Biographie du Prophète et histoire islamique',
+      color: 'from-amber-500 to-amber-600',
+      icon: BookOpen,
+      gradient: 'from-amber-50 to-amber-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
+    },
   ]
 
   return (
