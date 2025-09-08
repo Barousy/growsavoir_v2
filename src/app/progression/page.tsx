@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { BookOpen, Trophy, Clock, TrendingUp, Target, Award } from 'lucide-react'
+import ProgressDashboard from '@/components/ProgressDashboard'
 
 export default function ProgressionPage() {
   const subjects = [
@@ -96,8 +97,13 @@ export default function ProgressionPage() {
         </div>
       </div>
 
-      {/* Stats Overview */}
+      {/* Progress Dashboard */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <ProgressDashboard />
+      </div>
+
+      {/* Legacy Stats Overview - Hidden for now */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
