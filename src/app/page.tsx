@@ -1,71 +1,87 @@
 import Link from 'next/link'
-import { BookOpen, Globe, Calculator, Microscope, Computer, Building2, Brain, Trophy, ArrowRight, Star, Users, Clock } from 'lucide-react'
+import { BookOpen, Globe, Calculator, Microscope, Computer, Building2, Brain, Trophy, ArrowRight, Star, Users, Clock, Sparkles, Zap } from 'lucide-react'
 
 export default function HomePage() {
   const subjects = [
     {
       key: 'arabic',
       title: 'Langue Arabe',
-      emoji: '📖',
-              description: 'Apprentissage de l&apos;arabe avec support RTL et harakât',
-      color: 'bg-blue-500',
+      emoji: '📚',
+      description: 'Apprentissage de l&apos;arabe avec support RTL et harakât',
+      color: 'from-blue-500 to-blue-600',
       icon: Globe,
+      gradient: 'from-blue-50 to-blue-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'french',
       title: 'Langue Française',
       emoji: '🇫🇷',
       description: 'Maîtrise de la langue française',
-      color: 'bg-red-500',
+      color: 'from-red-500 to-red-600',
       icon: BookOpen,
+      gradient: 'from-red-50 to-red-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'english',
       title: 'Langue Anglaise',
       emoji: '🇬🇧',
       description: 'Apprentissage de l\'anglais',
-      color: 'bg-indigo-500',
+      color: 'from-indigo-500 to-indigo-600',
       icon: BookOpen,
+      gradient: 'from-indigo-50 to-indigo-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'mathematics',
       title: 'Mathématiques',
-      emoji: '🔢',
+      emoji: '🧮',
       description: 'Sciences mathématiques et logique',
-      color: 'bg-green-500',
+      color: 'from-green-500 to-green-600',
       icon: Calculator,
+      gradient: 'from-green-50 to-green-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'sciences',
       title: 'Sciences',
       emoji: '🔬',
       description: 'Sciences naturelles et expérimentales',
-      color: 'bg-purple-500',
+      color: 'from-purple-500 to-purple-600',
       icon: Microscope,
+      gradient: 'from-purple-50 to-purple-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'computer-science',
       title: 'Informatique',
       emoji: '💻',
       description: 'Programmation et technologies numériques',
-      color: 'bg-gray-500',
+      color: 'from-gray-500 to-gray-600',
       icon: Computer,
+      gradient: 'from-gray-50 to-gray-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'aqida',
       title: 'Aqida',
       emoji: '🕌',
       description: 'Croyance islamique authentique',
-      color: 'bg-yellow-500',
+      color: 'from-yellow-500 to-yellow-600',
       icon: Building2,
+      gradient: 'from-yellow-50 to-yellow-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
     {
       key: 'personal-development',
       title: 'Développement Personnel',
-      emoji: '🌟',
+      emoji: '✨',
       description: 'Adab et éthique islamique',
-      color: 'bg-pink-500',
+      color: 'from-pink-500 to-pink-600',
       icon: Brain,
+      gradient: 'from-pink-50 to-pink-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
   ]
 
@@ -144,45 +160,79 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {subjects.map((subject) => (
               <Link
                 key={subject.key}
                 href={`/catalogue/${subject.key}`}
-                className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-blue-200 overflow-hidden"
+                className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-transparent overflow-hidden"
               >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-indigo-50/0 group-hover:from-blue-50/50 group-hover:to-indigo-50/50 transition-all duration-300"></div>
+                {/* Animated background gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${subject.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500`}></div>
                 
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{subject.emoji}</span>
-                    <subject.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-50 to-indigo-50 rounded-full translate-y-12 -translate-x-12 group-hover:scale-125 transition-transform duration-700"></div>
+                
+                <div className="relative z-10">
+                  {/* Header with emoji and icon */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="relative">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${subject.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                        <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{subject.emoji}</span>
+                      </div>
+                      {/* Floating particles effect */}
+                      <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500 delay-100"></div>
+                      <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500 delay-200"></div>
+                    </div>
+                    <subject.icon className="h-8 w-8 text-gray-300 group-hover:text-gray-400 transition-all duration-300 group-hover:scale-110" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
+                  
+                  {/* Title and description */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">
                     {subject.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  <p className="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
                     {subject.description}
                   </p>
                   
-                  {/* Stats */}
-                  <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
-                    <div className="flex items-center">
-                      <BookOpen className="h-3 w-3 mr-1" />
-                      <span>48 leçons</span>
+                  {/* Enhanced stats */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-sm font-medium text-gray-700">{subject.stats.lessons} leçons</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Star className="h-4 w-4 text-yellow-500" />
+                        <span className="text-sm font-medium text-gray-700">{subject.stats.levels} niveaux</span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <Star className="h-3 w-3 mr-1 text-yellow-500" />
-                      <span>4 niveaux</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-xs text-gray-600">{subject.stats.difficulty}</span>
+                      </div>
+                      <div className="px-2 py-1 bg-gray-100 rounded-full">
+                        <span className="text-xs font-medium text-gray-600">Gratuit</span>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-center text-sm text-blue-600 font-medium group-hover:text-blue-700">
-                    Explorer
-                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  {/* Enhanced CTA */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors">
+                      <span>Explorer</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    </div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                      <ArrowRight className="h-4 w-4 text-white" />
+                    </div>
                   </div>
                 </div>
+                
+                {/* Hover effect border */}
+                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${subject.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
               </Link>
             ))}
           </div>
@@ -201,86 +251,90 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* N1 - Fondamentaux */}
-            <div className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-50/0 to-emerald-50/0 group-hover:from-green-50/50 group-hover:to-emerald-50/50 rounded-2xl transition-all duration-300"></div>
-              <div className="relative">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl font-bold text-green-600">1</span>
+            <div className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-4xl">🌱</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">N1 - Fondamentaux</h3>
-                <p className="text-sm text-gray-600 mb-4">Niveau d&apos;introduction pour les enfants de 6-8 ans</p>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200">
-                    N1 - Fondamentaux
-                  </span>
-                  <div className="flex items-center justify-center text-xs text-gray-500">
-                    <Users className="h-3 w-3 mr-1" />
-                    <span>6-8 ans</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">N1 - Fondamentaux</h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d&apos;introduction pour les enfants de 6-8 ans</p>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Users className="h-4 w-4 text-green-500" />
+                    <span className="text-sm font-medium text-gray-700">6-8 ans</span>
+                  </div>
+                  <div className="px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full">
+                    <span className="text-sm font-bold text-green-800">Gratuit</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* N2 - Intermédiaire */}
-            <div className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/0 to-amber-50/0 group-hover:from-yellow-50/50 group-hover:to-amber-50/50 rounded-2xl transition-all duration-300"></div>
-              <div className="relative">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl font-bold text-yellow-600">2</span>
+            <div className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-4xl">🌿</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">N2 - Intermédiaire</h3>
-                <p className="text-sm text-gray-600 mb-4">Niveau de développement pour les enfants de 9-11 ans</p>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
-                    N2 - Intermédiaire
-                  </span>
-                  <div className="flex items-center justify-center text-xs text-gray-500">
-                    <Users className="h-3 w-3 mr-1" />
-                    <span>9-11 ans</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">N2 - Intermédiaire</h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau de développement pour les enfants de 9-11 ans</p>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Users className="h-4 w-4 text-yellow-500" />
+                    <span className="text-sm font-medium text-gray-700">9-11 ans</span>
+                  </div>
+                  <div className="px-4 py-2 bg-gradient-to-r from-yellow-100 to-amber-100 rounded-full">
+                    <span className="text-sm font-bold text-yellow-800">Premium</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* N3 - Avancé */}
-            <div className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-50/0 to-red-50/0 group-hover:from-orange-50/50 group-hover:to-red-50/50 rounded-2xl transition-all duration-300"></div>
-              <div className="relative">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl font-bold text-orange-600">3</span>
+            <div className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-orange-100 to-red-100 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-4xl">🌳</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">N3 - Avancé</h3>
-                <p className="text-sm text-gray-600 mb-4">Niveau de maîtrise pour les enfants de 12-14 ans</p>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200">
-                    N3 - Avancé
-                  </span>
-                  <div className="flex items-center justify-center text-xs text-gray-500">
-                    <Users className="h-3 w-3 mr-1" />
-                    <span>12-14 ans</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">N3 - Avancé</h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau de maîtrise pour les enfants de 12-14 ans</p>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Users className="h-4 w-4 text-orange-500" />
+                    <span className="text-sm font-medium text-gray-700">12-14 ans</span>
+                  </div>
+                  <div className="px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 rounded-full">
+                    <span className="text-sm font-bold text-orange-800">Premium</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* N4 - Expert */}
-            <div className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-red-50/0 to-pink-50/0 group-hover:from-red-50/50 group-hover:to-pink-50/50 rounded-2xl transition-all duration-300"></div>
-              <div className="relative">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-red-100 to-pink-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl font-bold text-red-600">4</span>
+            <div className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-4xl">🌟</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">N4 - Expert</h3>
-                <p className="text-sm text-gray-600 mb-4">Niveau d&apos;excellence pour les adolescents de 15-18 ans</p>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-200">
-                    N4 - Expert
-                  </span>
-                  <div className="flex items-center justify-center text-xs text-gray-500">
-                    <Users className="h-3 w-3 mr-1" />
-                    <span>15-18 ans</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">N4 - Expert</h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d&apos;excellence pour les adolescents de 15-18 ans</p>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Users className="h-4 w-4 text-purple-500" />
+                    <span className="text-sm font-medium text-gray-700">15-18 ans</span>
+                  </div>
+                  <div className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full">
+                    <span className="text-sm font-bold text-purple-800">Premium</span>
                   </div>
                 </div>
               </div>
