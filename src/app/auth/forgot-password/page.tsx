@@ -33,7 +33,7 @@ export default function ForgotPasswordPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Email envoyé !</h1>
           <p className="text-gray-600 mb-6">
-            Si un compte existe avec l&apos;adresse <strong>{email}</strong>, 
+            Si un compte existe avec l'adresse <strong>{email}</strong>, 
             vous recevrez un email avec les instructions pour réinitialiser votre mot de passe.
           </p>
           <div className="space-y-3">
@@ -130,7 +130,7 @@ export default function ForgotPasswordPage() {
         {/* Help Text */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-500">
-            Si vous n&apos;avez pas reçu l&apos;email, vérifiez votre dossier spam ou{' '}
+            Si vous n'avez pas reçu l'email, vérifiez votre dossier spam ou{' '}
             <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
               contactez le support
             </Link>

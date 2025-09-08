@@ -7,7 +7,7 @@ export default function HomePage() {
       key: 'arabic',
       title: 'Langue Arabe',
       emoji: '📚',
-      description: 'Apprentissage de l&apos;arabe avec support RTL et harakât',
+      description: 'Apprentissage de l\'arabe avec support RTL et harakât',
       color: 'from-blue-500 to-blue-600',
       icon: Globe,
       gradient: 'from-blue-50 to-blue-100',
@@ -105,7 +105,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 max-w-3xl mx-auto sm:text-xl">
-              Découvrez un monde d&apos;apprentissage ludique et structuré. 
+              Découvrez un monde d'apprentissage ludique et structuré. 
               Des langues aux sciences, en passant par les sciences islamiques, 
               chaque leçon est conçue pour grandir ensemble.
             </p>
@@ -261,7 +261,7 @@ export default function HomePage() {
                   <span className="text-4xl">🌱</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">N1 - Fondamentaux</h3>
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d&apos;introduction pour les enfants de 6-8 ans</p>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d'introduction pour les enfants de 6-8 ans</p>
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-2">
                     <Users className="h-4 w-4 text-green-500" />
@@ -327,7 +327,7 @@ export default function HomePage() {
                   <span className="text-4xl">🌟</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">N4 - Expert</h3>
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d&apos;excellence pour les adolescents de 15-18 ans</p>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">Niveau d'excellence pour les adolescents de 15-18 ans</p>
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-2">
                     <Users className="h-4 w-4 text-purple-500" />
@@ -366,7 +366,7 @@ export default function HomePage() {
                   Gamification
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Badges, séries et progression pour motiver l&apos;apprentissage et maintenir l'engagement
+                  Badges, séries et progression pour motiver l'apprentissage et maintenir l'engagement
                 </p>
                 <div className="mt-4 flex items-center justify-center text-sm text-blue-600 font-medium">
                   <span>Découvrir les récompenses</span>

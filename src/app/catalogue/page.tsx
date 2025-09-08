@@ -143,7 +143,7 @@ export default async function CataloguePage() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white shadow-sm transition-all duration-200 hover:shadow-md"
                 >
                   <Lock className="h-4 w-4" />
-                  Déverrouiller l&apos;accès avancé
+                  Déverrouiller l'accès avancé
                 </Link>
               )}
             </div>
@@ -276,7 +276,7 @@ export default async function CataloguePage() {
             Prêt à commencer votre apprentissage ?
           </h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Rejoignez des milliers d&apos;étudiants qui apprennent et grandissent avec GrowSavoir
+            Rejoignez des milliers d'étudiants qui apprennent et grandissent avec GrowSavoir
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

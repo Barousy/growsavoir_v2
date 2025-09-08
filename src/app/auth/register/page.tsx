@@ -206,7 +206,7 @@ export default function RegisterPage() {
           <div className="mt-4 text-center text-xs text-gray-500">
             En vous inscrivant, vous acceptez nos{' '}
             <Link href="/terms" className="text-blue-600 hover:text-blue-800">
-              conditions d&apos;utilisation
+              conditions d'utilisation
             </Link>{' '}
             et notre{' '}
             <Link href="/privacy" className="text-blue-600 hover:text-blue-800">

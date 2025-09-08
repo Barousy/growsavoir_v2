@@ -48,7 +48,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Plateforme éducative moderne pour l&apos;apprentissage des langues, 
+              Plateforme éducative moderne pour l'apprentissage des langues, 
               des sciences et des sciences islamiques. Une approche progressive 
               et adaptée à tous les âges.
             </p>
@@ -65,7 +65,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start space-x-3 text-sm text-gray-300">
                 <MapPin className="h-4 w-4 text-blue-400 mt-0.5" />
-                <span>123 Avenue de l&apos;Éducation<br />75001 Paris, France</span>
+                <span>123 Avenue de l'Éducation<br />75001 Paris, France</span>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function Footer() {
             <div className="flex items-center space-x-4 text-sm text-gray-400">
               <span>© {currentYear} GrowSavoir. Tous droits réservés.</span>
               <span className="hidden md:inline">•</span>
-              <span className="hidden md:inline">Fait avec ❤️ pour l&apos;éducation</span>
+              <span className="hidden md:inline">Fait avec ❤️ pour l'éducation</span>
             </div>
             
             <div className="flex items-center space-x-2 text-sm text-gray-400">

@@ -85,7 +85,7 @@ export default function ContactPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Nous sommes là pour vous aider. N&apos;hésitez pas à nous faire part de vos questions ou suggestions.
+              Nous sommes là pour vous aider. N'hésitez pas à nous faire part de vos questions ou suggestions.
             </p>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Adresse</h3>
                   <p className="text-gray-600">
-                    123 Avenue de l&apos;Éducation<br />
+                    123 Avenue de l'Éducation<br />
                     75001 Paris, France
                   </p>
                 </div>
@@ -151,9 +151,9 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-gray-900 mb-6">Questions fréquentes</h3>
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-2">Comment puis-je déverrouiller l&apos;accès avancé ?</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">Comment puis-je déverrouiller l'accès avancé ?</h4>
                   <p className="text-sm text-gray-600">
-                    Utilisez la clé fournie lors de votre inscription ou contactez-nous pour obtenir l&apos;accès.
+                    Utilisez la clé fournie lors de votre inscription ou contactez-nous pour obtenir l'accès.
                   </p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -224,7 +224,7 @@ export default function ContactPage() {
                     <option value="technical">Support technique</option>
                     <option value="billing">Facturation</option>
                     <option value="partnership">Partenariat</option>
-                    <option value="feedback">Retour d&apos;expérience</option>
+                    <option value="feedback">Retour d'expérience</option>
                   </select>
                 </div>
 
