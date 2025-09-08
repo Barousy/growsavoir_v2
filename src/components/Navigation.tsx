@@ -2,16 +2,19 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Menu, X, Globe, BookOpen, Trophy, User, LogOut, Settings, BarChart3 } from 'lucide-react'
 import { useSession, signOut } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { localeNames } from '@/i18n/config'
+import { useLocaleCookie } from '@/i18n/use-locale'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [currentLocale, setCurrentLocale] = useState('fr')
+  const [currentLocale, setCurrentLocale] = useLocaleCookie()
+  const router = useRouter()
   const { data: session, status } = useSession()
 
   const navigation = [
@@ -63,7 +66,11 @@ export default function Navigation() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setCurrentLocale(currentLocale === 'fr' ? 'en' : currentLocale === 'en' ? 'ar' : 'fr')}
+                onClick={() => {
+                  const next = currentLocale === 'fr' ? 'en' : currentLocale === 'en' ? 'ar' : 'fr'
+                  setCurrentLocale(next)
+                  router.refresh()
+                }}
                 className="flex items-center space-x-2"
               >
                 <Globe className="h-4 w-4" />

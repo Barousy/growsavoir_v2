@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
+import { cookies } from "next/headers";
+import { defaultLocale, isRtl, Locale, locales } from "@/i18n/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,8 +74,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const localeCookie = cookies().get('locale')?.value as Locale | undefined
+  const locale = locales.includes(localeCookie as Locale) ? (localeCookie as Locale) : defaultLocale
   return (
-    <html lang="fr">
+    <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'}>
       <body
         className="antialiased"
         style={{
