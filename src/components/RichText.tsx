@@ -16,8 +16,8 @@ type RichTextProps = {
 const schema = {
   ...defaultSchema,
   attributes: {
-    ...defaultSchema.attributes,
-    code: [...(defaultSchema.attributes.code || []), ['className']],
+    ...(defaultSchema.attributes || {}),
+    code: [...(defaultSchema.attributes?.code || []), ['className']],
   },
 }
 
