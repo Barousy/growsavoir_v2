@@ -6,15 +6,15 @@ import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
 
-export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default async function LessonPage({ params }: { params: { slug: string } }) {
+  const { slug } = params
 
   // Récupérer la leçon basée sur le slug
   const lesson = getLessonBySlug(slug)
   if (!lesson) {
     notFound()
   }
-  const unlocked = hasUnlockedAccess()
+  const unlocked = await hasUnlockedAccess()
   if (lesson.isLocked && !unlocked) {
     return (
       <div className="min-h-screen bg-gray-50">
