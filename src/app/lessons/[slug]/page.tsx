@@ -2,6 +2,7 @@ import RichText from '@/components/RichText'
 import { notFound } from 'next/navigation'
 import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
@@ -138,10 +139,11 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
           {lesson.body.introduction.image && (
             <div className="mt-6">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={lesson.body.introduction.image}
                 alt={lesson.body.introduction.title}
+                width={800}
+                height={450}
                 className="rounded-lg shadow-sm"
               />
             </div>
