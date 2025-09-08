@@ -103,6 +103,16 @@ export default function HomePage() {
       gradient: 'from-amber-50 to-amber-100',
       stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
     },
+    {
+      key: 'islamic-history',
+      title: 'Histoire',
+      emoji: '🏛️',
+      description: 'Histoire de l\'Islam et civilisation musulmane',
+      color: 'from-orange-500 to-orange-600',
+      icon: BookOpen,
+      gradient: 'from-orange-50 to-orange-100',
+      stats: { lessons: 48, levels: 4, difficulty: 'Progressif' }
+    },
   ]
 
   return (
