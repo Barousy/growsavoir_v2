@@ -22,7 +22,7 @@ export default function Navigation() {
     { name: 'Progression', href: '/progression', icon: Trophy },
   ]
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
   const handleSignOut = async () => {
     await signOut({ callbackUrl: '/' })
