@@ -1,11 +1,12 @@
 import RichText from '@/components/RichText'
 import { notFound } from 'next/navigation'
-import { BookOpen, Clock, Lock, Unlock, Printer, Trophy, ArrowLeft } from 'lucide-react'
+import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
+import PrintButton from '@/components/PrintButton'
 
 export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -39,18 +40,6 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const level = getLevelById(lesson?.level || 'debutant')
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
 
-  const handlePrint = () => {
-    try {
-      // Vérifier si window est disponible (côté client)
-      if (typeof window !== 'undefined') {
-        window.print()
-      }
-    } catch (error) {
-      console.error('Erreur lors de l\'impression:', error)
-      // Optionnel : afficher un message d'erreur à l'utilisateur
-    }
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -68,13 +57,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             </div>
             
             <div className="flex items-center space-x-4">
-              <button
-                onClick={handlePrint}
-                className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <Printer className="h-4 w-4 mr-2" />
-                Imprimer
-              </button>
+              <PrintButton />
               
               {lesson.isLocked ? (
                 <div className="flex items-center px-4 py-2 text-gray-500 bg-gray-100 rounded-lg">
