@@ -17,8 +17,8 @@ const subjectMapping: Record<string, string> = {
   sciences: 'Sciences',
   'computer-science': 'Informatique',
   aqida: 'Aqida',
-  fiqh: 'Fiqh',
-  sira: 'Sira',
+  fiqh: 'Fiqh (Jurisprudence)',
+  sira: 'Sîra (Biographie du Prophète ﷺ)',
   'islamic-history': 'Histoire de l\'Islam',
   'personal-development': 'Développement Personnel',
 }
