@@ -1,8 +1,9 @@
 // src/app/catalogue/page.tsx
 import Link from 'next/link'
-import { BookOpen, Lock, Unlock, ShieldCheck } from 'lucide-react'
+import { BookOpen, Lock, Unlock, ShieldCheck, Search, Filter, Grid, List } from 'lucide-react'
 import { getTotalLessonCount, getLessonCountBySubject } from '@/data'
 import { hasUnlockedAccess } from '@/lib/access'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export default async function CataloguePage() {
   // Accès global (cookie gs_unlock)
@@ -112,8 +113,14 @@ export default async function CataloguePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-gray-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Breadcrumbs */}
+          <Breadcrumbs 
+            items={[{ label: 'Catalogue des Leçons' }]} 
+            className="mb-6"
+          />
+          
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
               Catalogue des Leçons
@@ -132,7 +139,7 @@ export default async function CataloguePage() {
               ) : (
                 <Link
                   href="/unlock"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white shadow-sm transition-all duration-200 hover:shadow-md"
                 >
                   <Lock className="h-4 w-4" />
                   Déverrouiller l&apos;accès avancé
@@ -143,19 +150,37 @@ export default async function CataloguePage() {
         </div>
       </div>
 
-      {/* Age Groups Filter */}
+      {/* Search and Filters */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Filtrer par âge :</h2>
-          <div className="flex flex-wrap gap-3">
-            {ageGroups.map((group) => (
-              <button
-                key={group.key}
-                className={`px-4 py-2 rounded-full text-sm font-medium ${group.color} hover:opacity-80 transition-opacity`}
-              >
-                {group.title} ({group.age})
-              </button>
-            ))}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            {/* Search Bar */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Rechercher une matière..."
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              />
+            </div>
+            
+            {/* Filters */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <Filter className="h-4 w-4 text-gray-500" />
+                <span className="text-sm font-medium text-gray-700">Filtrer par âge :</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {ageGroups.map((group) => (
+                  <button
+                    key={group.key}
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${group.color} hover:opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                  >
+                    {group.title} ({group.age})
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -166,19 +191,22 @@ export default async function CataloguePage() {
           {subjects.map((subject) => (
             <div
               key={subject.key}
-              className="group bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition shadow-gray-100"
+              className="group bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-200"
             >
               {/* Subject Header */}
-              <div className={`bg-gradient-to-r ${subject.color} p-6 text-white`}>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-4xl drop-shadow-sm">{subject.emoji}</span>
-                  <div className="text-right">
-                    <div className="text-xs/5 opacity-90">Leçons</div>
-                    <div className="text-2xl font-extrabold">{subject.lessonCount}</div>
+              <div className={`bg-gradient-to-r ${subject.color} p-6 text-white relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-4xl drop-shadow-sm group-hover:scale-110 transition-transform duration-300">{subject.emoji}</span>
+                    <div className="text-right">
+                      <div className="text-xs/5 opacity-90">Leçons</div>
+                      <div className="text-2xl font-extrabold group-hover:scale-105 transition-transform duration-300">{subject.lessonCount}</div>
+                    </div>
                   </div>
+                  <h3 className="text-xl font-semibold tracking-tight group-hover:text-blue-100 transition-colors">{subject.title}</h3>
+                  <p className="text-sm/6 opacity-95 mt-2">{subject.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight">{subject.title}</h3>
-                <p className="text-sm/6 opacity-95 mt-2">{subject.description}</p>
               </div>
 
               {/* Subject Content */}
@@ -191,7 +219,7 @@ export default async function CataloguePage() {
                       {ageGroups.map((group) => (
                         <span
                           key={group.key}
-                          className={`px-2.5 py-1 rounded-full text-[11px] font-medium ${group.color} ring-1 ring-inset ring-black/5`}
+                          className={`px-2.5 py-1 rounded-full text-[11px] font-medium ${group.color} ring-1 ring-inset ring-black/5 group-hover:scale-105 transition-transform duration-200`}
                         >
                           {group.title}
                         </span>
@@ -229,11 +257,14 @@ export default async function CataloguePage() {
                   {/* Action Button */}
                   <Link
                     href={`/catalogue/${subject.key}`}
-                    className="w-full bg-gray-900 text-white py-2.5 px-4 rounded-lg text-sm font-medium hover:bg-black transition-colors flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                    className="group/btn w-full bg-gray-900 text-white py-2.5 px-4 rounded-lg text-sm font-medium hover:bg-black transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white hover:shadow-lg hover:scale-105"
                     aria-label={`Explorer ${subject.title}`}
                   >
-                    <BookOpen className="h-4 w-4 transition-transform group-hover:scale-110" />
+                    <BookOpen className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
                     <span>Explorer {subject.title}</span>
+                    <svg className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </Link>
                 </div>
               </div>

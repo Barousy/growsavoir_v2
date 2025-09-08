@@ -1,12 +1,13 @@
 import RichText from '@/components/RichText'
 import { notFound } from 'next/navigation'
-import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft } from 'lucide-react'
+import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft, ChevronRight, Share2, Bookmark, Star } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getLessonBySlug } from '@/data/all-lessons'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
 import PrintButton from '@/components/PrintButton'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 
 type SlugParams = Promise<{ slug: string }>
@@ -47,22 +48,37 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* Breadcrumbs */}
+          <Breadcrumbs 
+            items={[
+              { label: 'Catalogue', href: '/catalogue' },
+              { label: lesson.subject || 'Matière', href: `/catalogue/${lesson.subject?.toLowerCase().replace(/\s+/g, '-')}` },
+              { label: lesson.title }
+            ]} 
+            className="mb-4"
+          />
+          
           <div className="flex items-center justify-between gap-4 sm:gap-6 flex-wrap">
             <div className="flex items-center gap-3 sm:gap-4">
               <Link
                 href="/catalogue"
-                className="flex items-center text-gray-700 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-md px-1"
+                className="group flex items-center text-gray-700 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-md px-1"
                 aria-label="Retour au catalogue"
               >
-                <ArrowLeft className="h-5 w-5 mr-2" />
+                <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
                 Retour au catalogue
               </Link>
             </div>
             
-
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                <Share2 className="h-4 w-4" />
+              </button>
+              <button className="p-2 text-gray-600 hover:text-yellow-600 hover:bg-yellow-50 rounded-lg transition-colors">
+                <Bookmark className="h-4 w-4" />
+              </button>
               <PrintButton />
               
               {lesson.isLocked ? (
