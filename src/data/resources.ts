@@ -36,6 +36,17 @@ const resources: Resource[] = [
     keywords: ['piliers', 'aqida'],
     durationSec: 180,
   },
+  {
+    id: 'r-003',
+    title: 'Activité interactive H5P – QCM arabe N1',
+    description: 'Questionnaire interactif H5P lié à la leçon Arabe N1 fondamentaux 01.',
+    type: 'link',
+    url: 'https://h5p.org/h5p/embed/109109',
+    subject: 'Langue Arabe',
+    lessonSlug: 'arabe-n1-fondamentaux-01',
+    language: 'fr',
+    keywords: ['h5p', 'quiz', 'arabe'],
+  },
 ]
 
 export function getAllResources() {

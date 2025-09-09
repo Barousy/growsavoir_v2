@@ -4,12 +4,14 @@ import { BookOpen, Clock, Lock, Unlock, Trophy, ArrowLeft, ChevronRight, Share2,
 import Link from 'next/link'
 import Image from 'next/image'
 import { getLessonBySlug } from '@/data/all-lessons'
+import { getResourcesByLesson } from '@/data/resources'
 import { getLevelById } from '@/data/levels'
 import { hasUnlockedAccess } from '@/lib/access'
 import PrintButton from '@/components/PrintButton'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import StructuredData from '@/components/StructuredData'
 import { DynamicProgressTracker } from '@/components/DynamicImports'
+import H5PEmbed from '@/components/H5PEmbed'
 import { Metadata } from 'next'
 
 type SlugParams = Promise<{ slug: string }>
@@ -140,6 +142,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
   }
   const level = getLevelById(lesson?.level || 'debutant')
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
+  const h5p = getResourcesByLesson(lesson.slug).find(r => r.url.includes('h5p'))
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -268,6 +271,14 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
             </div>
           )}
         </div>
+
+        {/* H5P activity (si disponible) */}
+        {h5p && (
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">🧩 Activité interactive</h2>
+            <H5PEmbed src={h5p.url} title={h5p.title} />
+          </div>
+        )}
 
         {/* Main Content */}
         <div className="space-y-6 sm:space-y-8">
