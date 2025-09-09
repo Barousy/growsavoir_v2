@@ -120,11 +120,11 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
   const unlocked = await hasUnlockedAccess()
   if (lesson.isLocked && !unlocked) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <div className="max-w-xl mx-auto px-4 py-16">
-          <div className="bg-white rounded-xl border border-gray-200 p-8 text-center">
-            <h1 className="text-2xl font-bold mb-2">Contenu verrouillé</h1>
-            <p className="text-gray-600 mb-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 text-center">
+            <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Contenu verrouillé</h1>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               Cette leçon est réservée (N2/N3/N4). Entre la clé pour tout déverrouiller.
             </p>
             <a
@@ -142,10 +142,10 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
   const isArabic = lesson.subject?.toLowerCase().includes('arabe')
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <StructuredData lesson={lesson} />
       {/* Header */}
-      <div className="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm border-b border-gray-200 sticky top-0 z-10">
+      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-800/80 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Breadcrumbs */}
           <Breadcrumbs 
@@ -161,7 +161,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
             <div className="flex items-center gap-3 sm:gap-4">
               <Link
                 href="/catalogue"
-                className="group flex items-center text-gray-700 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-md px-1"
+                className="group flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-800 rounded-md px-1"
                 aria-label="Retour au catalogue"
               >
                 <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -170,21 +170,21 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
             </div>
             
             <div className="flex items-center gap-2 sm:gap-3">
-              <button className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+              <button className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors">
                 <Share2 className="h-4 w-4" />
               </button>
-              <button className="p-2 text-gray-600 hover:text-yellow-600 hover:bg-yellow-50 rounded-lg transition-colors">
+              <button className="p-2 text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400 hover:bg-yellow-50 dark:hover:bg-yellow-900/20 rounded-lg transition-colors">
                 <Bookmark className="h-4 w-4" />
               </button>
               <PrintButton />
               
               {lesson.isLocked ? (
-                <div className="flex items-center px-4 py-2 text-gray-600 bg-gray-100 rounded-lg" aria-live="polite">
+                <div className="flex items-center px-4 py-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded-lg" aria-live="polite">
                   <Lock className="h-4 w-4 mr-2" />
                   Contenu verrouillé
                 </div>
               ) : (
-                <div className="flex items-center px-4 py-2 text-green-700 bg-green-100 rounded-lg" aria-live="polite">
+                <div className="flex items-center px-4 py-2 text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/20 rounded-lg" aria-live="polite">
                   <Unlock className="h-4 w-4 mr-2" />
                   Contenu débloqué
                 </div>
@@ -197,17 +197,17 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
       {/* Lesson Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Lesson Header */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8 mb-6 sm:mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sm:p-8 mb-6 sm:mb-8">
           <div className="flex items-start justify-between mb-4 sm:mb-6">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-snug">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 leading-snug">
                 {lesson.title}
               </h1>
-              <p className="text-base sm:text-lg text-gray-700 mb-4">
+              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-4">
                 {lesson.summary}
               </p>
               
-              <div className="flex items-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
+              <div className="flex items-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-400">
                 <div className="flex items-center">
                   <BookOpen className="h-4 w-4 mr-2" />
                   {lesson.subject}
@@ -224,7 +224,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
             </div>
             
             <div className="text-right">
-              <div className="text-2xl sm:text-3xl font-bold text-blue-600" aria-hidden>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400" aria-hidden>
                 📖
               </div>
             </div>
@@ -237,8 +237,8 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
         </div>
 
         {/* Introduction */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sm:p-8 mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sm:p-8 mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center">
             🎯 {lesson.body.introduction.title}
           </h2>
 

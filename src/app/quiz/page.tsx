@@ -33,22 +33,22 @@ export default async function QuizIndexPage() {
     .sort((a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-start justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 flex items-center">
-                <BookOpenCheck className="h-7 w-7 text-blue-600 mr-2" />
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center">
+                <BookOpenCheck className="h-7 w-7 text-blue-600 dark:text-blue-400 mr-2" />
                 Quiz — Tous les sujets
               </h1>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
                 {quizzes.length} quiz disponibles dans les leçons.
               </p>
             </div>
             <Link
               href="/catalogue"
-              className="text-blue-600 hover:text-blue-700 underline mt-1"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline mt-1"
             >
               ← Retour au catalogue
             </Link>
