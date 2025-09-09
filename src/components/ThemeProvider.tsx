@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 type Theme = 'light' | 'dark' | 'system'
 
@@ -15,6 +16,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('system')
   const [actualTheme, setActualTheme] = useState<'light' | 'dark'>('light')
+  const { trackThemeChangeEvent } = useAnalytics()
 
   useEffect(() => {
     // Récupérer le thème sauvegardé
@@ -39,7 +41,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     // Sauvegarder le thème
     localStorage.setItem('growsavoir-theme', theme)
-  }, [theme])
+    
+    // Tracker le changement de thème
+    trackThemeChangeEvent(theme)
+  }, [theme, trackThemeChangeEvent])
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, actualTheme }}>

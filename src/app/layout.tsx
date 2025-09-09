@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Preloader from "@/components/Preloader";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { cookies } from "next/headers";
 import { defaultLocale, isRtl, Locale, locales } from "@/i18n/config";
 
@@ -104,17 +106,20 @@ export default async function RootLayout({
           '--font-geist-mono': geistMono.variable,
         } as React.CSSProperties}
       >
-        <ThemeProvider>
-          <NextAuthProvider>
-            <Preloader>
-              <Navigation />
-              <main className="min-h-screen">
-                {children}
-              </main>
-              <Footer />
-            </Preloader>
-          </NextAuthProvider>
-        </ThemeProvider>
+        <AnalyticsProvider>
+          <ThemeProvider>
+            <NextAuthProvider>
+              <Preloader>
+                <PerformanceMonitor />
+                <Navigation />
+                <main className="min-h-screen">
+                  {children}
+                </main>
+                <Footer />
+              </Preloader>
+            </NextAuthProvider>
+          </ThemeProvider>
+        </AnalyticsProvider>
       </body>
     </html>
   );
