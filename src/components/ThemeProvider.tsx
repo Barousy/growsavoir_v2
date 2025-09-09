@@ -23,6 +23,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem('growsavoir-theme') as Theme
     if (savedTheme) {
       setTheme(savedTheme)
+    } else {
+      // Définir le thème par défaut
+      setTheme('light')
     }
   }, [])
 
@@ -30,22 +33,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = window.document.documentElement
     root.classList.remove('light', 'dark')
 
+    let resolvedTheme: 'light' | 'dark'
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      root.classList.add(systemTheme)
-      root.setAttribute('data-theme', systemTheme)
-      setActualTheme(systemTheme)
+      resolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     } else {
-      root.classList.add(theme)
-      root.setAttribute('data-theme', theme)
-      setActualTheme(theme)
+      resolvedTheme = theme
     }
 
+    root.classList.add(resolvedTheme)
+    root.setAttribute('data-theme', resolvedTheme)
+    setActualTheme(resolvedTheme)
+
     // Forcer l'application du thème sur le body
-    const bodyTheme = theme === 'system' 
-      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-      : theme
-    document.body.className = bodyTheme
+    document.body.className = resolvedTheme
 
     // Sauvegarder le thème
     localStorage.setItem('growsavoir-theme', theme)

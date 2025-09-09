@@ -54,17 +54,25 @@
   * {
     @apply border-gray-200 dark:border-gray-700;
   }
-  body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
-  }
   html {
     @apply bg-white dark:bg-gray-900;
+  }
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200;
   }
   .dark {
     @apply bg-gray-900 text-white;
   }
   .dark * {
     @apply border-gray-700;
+  }
+  
+  /* Force dark mode on specific elements */
+  .dark body {
+    @apply bg-gray-900 text-white;
+  }
+  .dark html {
+    @apply bg-gray-900;
   }
 }
 
