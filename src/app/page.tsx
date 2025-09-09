@@ -116,25 +116,25 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700">
         <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0e7ff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
-            <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 mb-8">
-              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900 px-4 py-2 text-sm font-medium text-blue-800 dark:text-blue-200 mb-8">
+              <span className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-2 animate-pulse"></span>
               Plateforme éducative moderne
             </div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-7xl">
               Bienvenue sur{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 animate-gradient">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-400 animate-gradient">
                 GrowSavoir
               </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 max-w-3xl mx-auto sm:text-xl">
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto sm:text-xl">
               Découvrez un monde d'apprentissage ludique et structuré. 
               Des langues aux sciences, en passant par les sciences islamiques, 
               chaque leçon est conçue pour grandir ensemble.
@@ -152,7 +152,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/quiz"
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 bg-white rounded-xl shadow-lg hover:shadow-xl ring-1 ring-gray-300 hover:ring-gray-400 transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl ring-1 ring-gray-300 dark:ring-gray-600 hover:ring-gray-400 dark:hover:ring-gray-500 transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
               >
                 <Trophy className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                 Démarrer un quiz
@@ -162,16 +162,16 @@ export default function HomePage() {
             {/* Stats */}
             <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">48+</div>
-                <div className="text-sm text-gray-600">Leçons par matière</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">48+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Leçons par matière</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">4</div>
-                <div className="text-sm text-gray-600">Niveaux progressifs</div>
+                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">4</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Niveaux progressifs</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600">10+</div>
-                <div className="text-sm text-gray-600">Matières disponibles</div>
+                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">10+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Matières disponibles</div>
               </div>
             </div>
           </div>
@@ -179,13 +179,13 @@ export default function HomePage() {
       </section>
 
       {/* Subjects Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Nos Matières
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               Un curriculum complet adapté à tous les âges et niveaux
             </p>
           </div>
@@ -195,14 +195,14 @@ export default function HomePage() {
               <Link
                 key={subject.key}
                 href={`/catalogue/${subject.key}`}
-                className="group relative bg-white rounded-3xl shadow-lg border border-gray-100 p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-transparent overflow-hidden"
+                className="group relative bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-transparent overflow-hidden"
               >
                 {/* Animated background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${subject.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500`}></div>
                 
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-50 to-indigo-50 rounded-full translate-y-12 -translate-x-12 group-hover:scale-125 transition-transform duration-700"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900 rounded-full translate-y-12 -translate-x-12 group-hover:scale-125 transition-transform duration-700"></div>
                 
                 <div className="relative z-10">
                   {/* Header with emoji and icon */}
@@ -215,14 +215,14 @@ export default function HomePage() {
                       <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500 delay-100"></div>
                       <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500 delay-200"></div>
                     </div>
-                    <subject.icon className="h-8 w-8 text-gray-300 group-hover:text-gray-400 transition-all duration-300 group-hover:scale-110" />
+                    <subject.icon className="h-8 w-8 text-gray-300 dark:text-gray-600 group-hover:text-gray-400 dark:group-hover:text-gray-500 transition-all duration-300 group-hover:scale-110" />
                   </div>
                   
                   {/* Title and description */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
                     {subject.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6 line-clamp-2">
                     {subject.description}
                   </p>
                   
@@ -231,27 +231,27 @@ export default function HomePage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <span className="text-sm font-medium text-gray-700">{subject.stats.lessons} leçons</span>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{subject.stats.lessons} leçons</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Star className="h-4 w-4 text-yellow-500" />
-                        <span className="text-sm font-medium text-gray-700">{subject.stats.levels} niveaux</span>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{subject.stats.levels} niveaux</span>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-xs text-gray-600">{subject.stats.difficulty}</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400">{subject.stats.difficulty}</span>
                       </div>
-                      <div className="px-2 py-1 bg-gray-100 rounded-full">
-                        <span className="text-xs font-medium text-gray-600">Gratuit</span>
+                      <div className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
+                        <span className="text-xs font-medium text-gray-600 dark:text-gray-300">Gratuit</span>
                       </div>
                     </div>
                   </div>
                   
                   {/* Enhanced CTA */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors">
+                    <div className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
                       <span>Explorer</span>
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
@@ -270,13 +270,13 @@ export default function HomePage() {
       </section>
 
       {/* Levels Showcase Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Progression par Niveaux
             </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Une progression claire et structurée avec des couleurs distinctives pour chaque tranche d'âge
             </p>
           </div>
