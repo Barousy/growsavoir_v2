@@ -8,8 +8,7 @@ import { useSession, signOut } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import ThemeToggle from './ThemeToggle'
-import AdvancedSearch from './AdvancedSearch'
+import { DynamicThemeToggle, DynamicAdvancedSearch } from './DynamicImports'
 import { localeNames } from '@/i18n/config'
 import { useLocaleCookie } from '@/i18n/use-locale'
 
@@ -61,7 +60,7 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Recherche avancée */}
-            <AdvancedSearch />
+            <DynamicAdvancedSearch />
             
             {/* Navigation principale */}
             <div className="flex items-center space-x-2">
@@ -87,7 +86,7 @@ export default function Navigation() {
             </div>
             
             {/* Toggle de thème */}
-            <ThemeToggle />
+            <DynamicThemeToggle />
           </div>
 
           {/* Right side - Language switcher and user menu */}

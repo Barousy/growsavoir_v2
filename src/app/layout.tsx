@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Preloader from "@/components/Preloader";
 import { cookies } from "next/headers";
 import { defaultLocale, isRtl, Locale, locales } from "@/i18n/config";
 
@@ -105,11 +106,13 @@ export default async function RootLayout({
       >
         <ThemeProvider>
           <NextAuthProvider>
-            <Navigation />
-            <main className="min-h-screen">
-              {children}
-            </main>
-            <Footer />
+            <Preloader>
+              <Navigation />
+              <main className="min-h-screen">
+                {children}
+              </main>
+              <Footer />
+            </Preloader>
           </NextAuthProvider>
         </ThemeProvider>
       </body>

@@ -9,7 +9,7 @@ import { hasUnlockedAccess } from '@/lib/access'
 import PrintButton from '@/components/PrintButton'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import StructuredData from '@/components/StructuredData'
-import ProgressTracker from '@/components/ProgressTracker'
+import { DynamicProgressTracker } from '@/components/DynamicImports'
 import { Metadata } from 'next'
 
 type SlugParams = Promise<{ slug: string }>
@@ -233,7 +233,7 @@ export default async function LessonPage({ params }: { params: SlugParams }) {
 
         {/* Progress Tracker */}
         <div className="mb-6 sm:mb-8">
-          <ProgressTracker lesson={lesson} />
+          <DynamicProgressTracker lesson={lesson} />
         </div>
 
         {/* Introduction */}

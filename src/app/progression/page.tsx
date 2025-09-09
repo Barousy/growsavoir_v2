@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { BookOpen, Trophy, Clock, TrendingUp, Target, Award } from 'lucide-react'
-import ProgressDashboard from '@/components/ProgressDashboard'
+import { DynamicProgressDashboard } from '@/components/DynamicImports'
 
 export default function ProgressionPage() {
   const subjects = [
@@ -99,7 +99,7 @@ export default function ProgressionPage() {
 
       {/* Progress Dashboard */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ProgressDashboard />
+        <DynamicProgressDashboard />
       </div>
 
       {/* Legacy Stats Overview - Hidden for now */}
