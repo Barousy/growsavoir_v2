@@ -33,11 +33,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (theme === 'system') {
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
       root.classList.add(systemTheme)
+      root.setAttribute('data-theme', systemTheme)
       setActualTheme(systemTheme)
     } else {
       root.classList.add(theme)
+      root.setAttribute('data-theme', theme)
       setActualTheme(theme)
     }
+
+    // Forcer l'application du thème sur le body
+    const bodyTheme = theme === 'system' 
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : theme
+    document.body.className = bodyTheme
 
     // Sauvegarder le thème
     localStorage.setItem('growsavoir-theme', theme)

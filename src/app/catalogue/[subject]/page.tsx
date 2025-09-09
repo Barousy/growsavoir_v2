@@ -43,19 +43,19 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   const unlocked = await hasUnlockedAccess()
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <Link
               href="/catalogue"
-              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+              className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
               Retour au catalogue
             </Link>
-            <h1 className="text-2xl font-bold text-gray-900">{subjectName}</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{subjectName}</h1>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       {/* Lessons Grid */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {lessons.length === 0 ? (
-          <p className="text-center text-gray-500 mt-8">Aucune leçon trouvée pour cette matière.</p>
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-8">Aucune leçon trouvée pour cette matière.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {lessons.map((lesson) => {
@@ -74,20 +74,20 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
                 <Link
                   key={lesson.slug}
                   href={`/lessons/${lesson.slug}`}
-                  className={`block bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow ${isLessonLocked ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`block bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow ${isLessonLocked ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h2 className="text-xl font-semibold text-gray-900">{lesson.title}</h2>
-                      <p className="text-sm text-gray-600 mt-1">{lesson.summary}</p>
+                      <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{lesson.title}</h2>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{lesson.summary}</p>
                     </div>
                     {isLessonLocked ? (
-                      <Lock className="h-5 w-5 text-gray-400" />
+                      <Lock className="h-5 w-5 text-gray-400 dark:text-gray-500" />
                     ) : (
-                      <Unlock className="h-5 w-5 text-green-600" />
+                      <Unlock className="h-5 w-5 text-green-600 dark:text-green-400" />
                     )}
                   </div>
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       {lesson.estimatedMinutes} min

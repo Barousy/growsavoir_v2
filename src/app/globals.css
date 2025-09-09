@@ -57,6 +57,15 @@
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
   }
+  html {
+    @apply bg-white dark:bg-gray-900;
+  }
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+  .dark * {
+    @apply border-gray-700;
+  }
 }
 
 /* Custom animations for better UX */

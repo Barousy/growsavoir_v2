@@ -112,9 +112,9 @@ export default async function CataloguePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
              {/* Header */}
-             <div className="bg-white border-b border-gray-200">
+             <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Breadcrumbs */}
           <Breadcrumbs 
@@ -123,10 +123,10 @@ export default async function CataloguePage() {
           />
           
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Catalogue des Leçons
             </h1>
-            <p className="mt-3 text-base sm:text-lg text-gray-600">
+            <p className="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">
               Découvrez {totalLessons} leçon{totalLessons > 1 ? 's' : ''} organisées par matière et par niveau
             </p>
 
@@ -152,7 +152,7 @@ export default async function CataloguePage() {
       </div>
 
              {/* Search and Filters */}
-             <div className="bg-white border-b border-gray-200">
+             <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                    {/* Subject Search Dropdown */}
@@ -163,8 +163,8 @@ export default async function CataloguePage() {
             {/* Filters */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
-                <Filter className="h-4 w-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">Filtrer par âge :</span>
+                <Filter className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Filtrer par âge :</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {ageGroups.map((group) => (
@@ -187,7 +187,7 @@ export default async function CataloguePage() {
           {subjects.map((subject) => (
             <div
               key={subject.key}
-              className="group bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-200"
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 dark:hover:border-blue-600"
             >
               {/* Subject Header */}
               <div className={`bg-gradient-to-r ${subject.color} p-6 text-white relative overflow-hidden`}>
@@ -210,7 +210,7 @@ export default async function CataloguePage() {
                 <div className="space-y-4">
                   {/* Age Groups */}
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Niveaux disponibles :</h4>
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Niveaux disponibles :</h4>
                     <div className="flex flex-wrap gap-2">
                       {ageGroups.map((group) => (
                         <span
@@ -225,26 +225,26 @@ export default async function CataloguePage() {
 
                   {/* Sample Lessons (icônes dynamiques selon l'accès) */}
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Exemples de leçons :</h4>
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Exemples de leçons :</h4>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600">Niveau Débutant</span>
-                        <Unlock className="h-4 w-4 text-green-600" />
+                        <span className="text-gray-600 dark:text-gray-400">Niveau Débutant</span>
+                        <Unlock className="h-4 w-4 text-green-600 dark:text-green-400" />
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600">Niveau Intermédiaire</span>
+                        <span className="text-gray-600 dark:text-gray-400">Niveau Intermédiaire</span>
                         {unlocked ? (
-                          <Unlock className="h-4 w-4 text-green-600" />
+                          <Unlock className="h-4 w-4 text-green-600 dark:text-green-400" />
                         ) : (
-                          <Lock className="h-4 w-4 text-gray-400" />
+                          <Lock className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                         )}
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600">Niveau Avancé</span>
+                        <span className="text-gray-600 dark:text-gray-400">Niveau Avancé</span>
                         {unlocked ? (
-                          <Unlock className="h-4 w-4 text-green-600" />
+                          <Unlock className="h-4 w-4 text-green-600 dark:text-green-400" />
                         ) : (
-                          <Lock className="h-4 w-4 text-gray-400" />
+                          <Lock className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                         )}
                       </div>
                     </div>
